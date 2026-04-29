@@ -1,0 +1,125 @@
+.steps {
+  display: flex;
+  gap: 0;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.step {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+
+.stepNum {
+  --step-color: var(--magenta);
+  position: relative;
+  display: grid;
+  width: 78px;
+  height: 78px;
+  margin: 0 auto 1rem;
+  color: var(--step-color);
+  font-family: var(--font-display);
+  font-size: 2.05rem;
+  background:
+    radial-gradient(circle at 35% 25%, rgba(255, 255, 255, 0.18), transparent 30%),
+    color-mix(in srgb, var(--step-color), transparent 86%);
+  border-radius: 50%;
+  place-items: center;
+  box-shadow: 0 0 30px color-mix(in srgb, var(--step-color), transparent 60%);
+}
+
+.stepNum::before,
+.stepNum::after {
+  position: absolute;
+  inset: -5px;
+  content: '';
+  border: 1px solid color-mix(in srgb, var(--step-color), transparent 35%);
+  border-radius: inherit;
+  animation: spinOrb 4s linear infinite;
+}
+
+.stepNum::after {
+  inset: 8px;
+  border-style: dashed;
+  animation-direction: reverse;
+  animation-duration: 6s;
+}
+
+.stepNum span {
+  position: relative;
+  z-index: 1;
+}
+
+.magenta {
+  --step-color: #ff2d9b;
+}
+
+.cyan {
+  --step-color: #00e5ff;
+}
+
+.green {
+  --step-color: #39ff14;
+}
+
+.title {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1;
+  letter-spacing: 1px;
+}
+
+.description {
+  max-width: 17rem;
+  margin: 0 auto;
+  color: rgba(240, 238, 255, 0.64);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.connector {
+  display: flex;
+  flex: 0 0 80px;
+  align-items: center;
+  justify-content: center;
+  padding-top: 2.4rem;
+}
+
+.connectorLine {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--magenta), var(--cyan));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.8s ease 0.3s;
+}
+
+.connector[data-visible='true'] .connectorLine {
+  transform: scaleX(1);
+}
+
+@keyframes spinOrb {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .steps {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .step {
+    width: min(100%, 24rem);
+    padding: 0;
+  }
+
+  .connector {
+    display: none;
+  }
+}

@@ -1,0 +1,103 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #07071a;
+  --bg-2: #0d0d24;
+  --magenta: #ff2d9b;
+  --cyan: #00e5ff;
+  --yellow: #ffe600;
+  --orange: #ff6a00;
+  --purple: #a855f7;
+  --green: #39ff14;
+  --white: #f0eeff;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+  color: var(--white);
+  background: var(--bg);
+  font-family: var(--font-body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--bg);
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+}
+
+canvas {
+  display: block;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.rainbowText {
+  background: linear-gradient(
+    90deg,
+    var(--magenta),
+    var(--orange),
+    var(--yellow),
+    var(--cyan),
+    var(--purple),
+    var(--magenta)
+  );
+  background-size: 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shiftGradient 4s linear infinite;
+}
+
+@keyframes shiftGradient {
+  from {
+    background-position: 0%;
+  }
+
+  to {
+    background-position: 300%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

@@ -1,0 +1,174 @@
+.grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  columns: 3;
+  column-gap: 1rem;
+}
+
+.card {
+  --tile-a: #ff2d9b;
+  --tile-b: #a855f7;
+  position: relative;
+  min-height: 220px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  break-inside: avoid;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow: inset 0 0 32px rgba(255, 255, 255, 0.03);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+}
+
+.mini {
+  min-height: 170px;
+}
+
+.short {
+  min-height: 200px;
+}
+
+.medium {
+  min-height: 230px;
+}
+
+.tall {
+  min-height: 280px;
+}
+
+.large {
+  min-height: 260px;
+}
+
+.visual {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 18%, color-mix(in srgb, var(--tile-a), transparent 48%), transparent 30%),
+    radial-gradient(circle at 78% 74%, color-mix(in srgb, var(--tile-b), transparent 48%), transparent 34%),
+    repeating-linear-gradient(
+      45deg,
+      color-mix(in srgb, var(--tile-a), transparent 84%) 0 2px,
+      transparent 2px 18px
+    ),
+    linear-gradient(135deg, color-mix(in srgb, var(--tile-a), transparent 76%), color-mix(in srgb, var(--tile-b), transparent 68%));
+  transform: scale(1.02);
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.visual::before,
+.visual::after {
+  position: absolute;
+  content: '';
+  border-radius: 999px;
+  filter: blur(0.5px);
+}
+
+.visual::before {
+  top: 28%;
+  left: 13%;
+  width: 72%;
+  height: 0.5rem;
+  background: var(--tile-a);
+  box-shadow: 0 0 22px var(--tile-a);
+  transform: rotate(-12deg);
+}
+
+.visual::after {
+  right: 12%;
+  bottom: 26%;
+  width: 42%;
+  height: 0.42rem;
+  background: var(--tile-b);
+  box-shadow: 0 0 22px var(--tile-b);
+  transform: rotate(18deg);
+}
+
+.card:hover .visual {
+  filter: saturate(1.25) brightness(1.08);
+  transform: scale(1.08) rotate(1deg);
+}
+
+.magenta {
+  --tile-a: #ff2d9b;
+  --tile-b: #a855f7;
+}
+
+.cyan {
+  --tile-a: #00e5ff;
+  --tile-b: #0066ff;
+}
+
+.yellow {
+  --tile-a: #ffe600;
+  --tile-b: #ff6a00;
+}
+
+.purple {
+  --tile-a: #a855f7;
+  --tile-b: #ff2d9b;
+}
+
+.orange {
+  --tile-a: #ff6a00;
+  --tile-b: #ffe600;
+}
+
+.green {
+  --tile-a: #39ff14;
+  --tile-b: #00e5ff;
+}
+
+.tag {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  z-index: 2;
+  padding: 0.3rem 0.8rem;
+  color: rgba(240, 238, 255, 0.88);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+.label {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1.4rem;
+  left: 1.5rem;
+  z-index: 2;
+  margin: 0;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.3;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    columns: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    columns: 1;
+  }
+}

@@ -1,0 +1,113 @@
+.layer {
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.cursor,
+.trailDot {
+  position: fixed;
+  z-index: 9999;
+  border-radius: 999px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: screen;
+}
+
+.cursor {
+  width: 12px;
+  height: 12px;
+  transition: background 0.2s ease;
+}
+
+.trailDot {
+  z-index: 9998;
+}
+
+.dot0 {
+  width: 8px;
+  height: 8px;
+  background: #ff2d9b;
+  opacity: 0.6;
+}
+
+.dot1 {
+  width: 7.5px;
+  height: 7.5px;
+  background: #00e5ff;
+  opacity: 0.56;
+}
+
+.dot2 {
+  width: 7px;
+  height: 7px;
+  background: #ffe600;
+  opacity: 0.52;
+}
+
+.dot3 {
+  width: 6.5px;
+  height: 6.5px;
+  background: #ff6a00;
+  opacity: 0.48;
+}
+
+.dot4 {
+  width: 6px;
+  height: 6px;
+  background: #a855f7;
+  opacity: 0.44;
+}
+
+.dot5 {
+  width: 5.5px;
+  height: 5.5px;
+  background: #39ff14;
+  opacity: 0.4;
+}
+
+.dot6 {
+  width: 5px;
+  height: 5px;
+  background: #ff2d9b;
+  opacity: 0.36;
+}
+
+.dot7 {
+  width: 4.5px;
+  height: 4.5px;
+  background: #00e5ff;
+  opacity: 0.32;
+}
+
+.dot8 {
+  width: 4px;
+  height: 4px;
+  background: #ffe600;
+  opacity: 0.28;
+}
+
+.dot9 {
+  width: 3.5px;
+  height: 3.5px;
+  background: #ff6a00;
+  opacity: 0.24;
+}
+
+.dot10,
+.dot11 {
+  width: 3px;
+  height: 3px;
+  background: #a855f7;
+  opacity: 0.2;
+}
+
+@media (pointer: coarse) {
+  .layer {
+    display: none;
+  }
+}

@@ -1,0 +1,180 @@
+.ctaSection {
+  text-align: center;
+}
+
+.box {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 800px);
+  padding: 4rem 3rem;
+  margin: 0 auto;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.035);
+  border: 2px solid rgba(255, 45, 155, 0.35);
+  border-radius: 24px;
+  box-shadow:
+    0 0 30px rgba(255, 45, 155, 0.3),
+    inset 0 0 30px rgba(255, 45, 155, 0.03);
+  animation: glowBorder 3s ease infinite;
+}
+
+.title {
+  font-size: 4rem;
+}
+
+.copy {
+  max-width: 540px;
+  margin: 1rem auto 2rem;
+  color: rgba(240, 238, 255, 0.66);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.primaryButton {
+  display: inline-flex;
+  gap: 0.65rem;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 3rem;
+  margin: 0 auto;
+  color: #fff;
+  font-size: 1.18rem;
+  font-weight: 900;
+  text-decoration: none;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  border-radius: 999px;
+  box-shadow: 0 0 30px rgba(37, 211, 102, 0.5);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.primaryButton:hover,
+.primaryButton:focus-visible {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 0 50px rgba(37, 211, 102, 0.7);
+}
+
+.buttonIcon {
+  width: 22px;
+  height: 22px;
+}
+
+.contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.chip {
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.7rem 1.4rem;
+  color: rgba(240, 238, 255, 0.82);
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.chip:hover,
+.chip:focus-visible {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.chipIcon {
+  font-size: 1.1rem;
+}
+
+.chipSvg {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.mapFrame {
+  width: 100%;
+  max-width: 680px;
+  margin: 2rem auto 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+.map {
+  display: block;
+  border: 0;
+  filter: hue-rotate(200deg) saturate(0.7) brightness(0.85);
+}
+
+.mapLink {
+  display: block;
+  padding: 0.6rem;
+  color: rgba(240, 238, 255, 0.5);
+  font-size: 0.75rem;
+  text-align: center;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.04);
+  transition: color 0.2s ease;
+}
+
+.mapLink:hover,
+.mapLink:focus-visible {
+  color: var(--cyan);
+}
+
+@keyframes glowBorder {
+  0%,
+  100% {
+    border-color: rgba(255, 45, 155, 0.4);
+    box-shadow:
+      0 0 30px rgba(255, 45, 155, 0.3),
+      inset 0 0 30px rgba(255, 45, 155, 0.03);
+  }
+
+  33% {
+    border-color: rgba(0, 229, 255, 0.4);
+    box-shadow:
+      0 0 30px rgba(0, 229, 255, 0.3),
+      inset 0 0 30px rgba(0, 229, 255, 0.03);
+  }
+
+  66% {
+    border-color: rgba(168, 85, 247, 0.4);
+    box-shadow:
+      0 0 30px rgba(168, 85, 247, 0.3),
+      inset 0 0 30px rgba(168, 85, 247, 0.03);
+  }
+}
+
+@media (max-width: 640px) {
+  .box {
+    padding: 2.5rem 1.3rem;
+    border-radius: 18px;
+  }
+
+  .title {
+    font-size: 2.45rem;
+  }
+
+  .primaryButton {
+    width: 100%;
+    padding-inline: 1.2rem;
+    font-size: 1rem;
+  }
+
+  .chip {
+    width: 100%;
+    justify-content: center;
+  }
+}

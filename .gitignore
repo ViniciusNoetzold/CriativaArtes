@@ -1,0 +1,13 @@
+node_modules/
+dist/
+
+*.log
+vite-dev*.log
+
+screenshots/
+uploads/
+scraps/
+
+Criativa Artes.html
+.DS_Store
+Thumbs.db
