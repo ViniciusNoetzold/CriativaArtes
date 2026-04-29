@@ -6,10 +6,12 @@ import Hero from './components/Hero.jsx';
 import NavBar from './components/NavBar.jsx';
 import Process from './components/Process.jsx';
 import Products from './components/Products.jsx';
+import SiteBackground from './components/SiteBackground.jsx';
 
 export default function App() {
   return (
     <>
+      <SiteBackground />
       <CursorTrail />
       <NavBar />
       <main>

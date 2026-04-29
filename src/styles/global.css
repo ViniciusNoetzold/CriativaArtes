@@ -61,7 +61,14 @@ canvas {
 }
 
 #root {
+  position: relative;
   min-height: 100vh;
+}
+
+main,
+footer {
+  position: relative;
+  z-index: 1;
 }
 
 .rainbowText {

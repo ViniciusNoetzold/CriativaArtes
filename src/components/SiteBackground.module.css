@@ -1,0 +1,310 @@
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(255, 45, 155, 0.14), transparent 28%),
+    linear-gradient(240deg, rgba(0, 229, 255, 0.13), transparent 30%),
+    repeating-linear-gradient(100deg, transparent 0 7rem, rgba(255, 255, 255, 0.025) 7rem 7.15rem, transparent 7.15rem 13rem),
+    #07071a;
+}
+
+.background span {
+  position: absolute;
+  display: block;
+  will-change: transform, opacity;
+}
+
+.ribbonOne,
+.ribbonTwo,
+.ribbonThree {
+  width: 82vw;
+  height: 18rem;
+  border-radius: 48% 52% 42% 58%;
+  filter: blur(24px);
+  mix-blend-mode: screen;
+  opacity: 0.46;
+}
+
+.ribbonOne {
+  top: 4rem;
+  left: -22vw;
+  background: linear-gradient(90deg, transparent, rgba(255, 45, 155, 0.34), rgba(255, 106, 0, 0.22), transparent);
+  animation: driftRibbonOne 24s ease-in-out infinite alternate;
+}
+
+.ribbonTwo {
+  top: 35vh;
+  right: -28vw;
+  background: linear-gradient(90deg, transparent, rgba(0, 229, 255, 0.3), rgba(168, 85, 247, 0.24), transparent);
+  animation: driftRibbonTwo 28s ease-in-out infinite alternate;
+}
+
+.ribbonThree {
+  bottom: -4rem;
+  left: 8vw;
+  background: linear-gradient(90deg, transparent, rgba(255, 230, 0, 0.24), rgba(57, 255, 20, 0.16), transparent);
+  animation: driftRibbonThree 22s ease-in-out infinite alternate;
+}
+
+.beamOne,
+.beamTwo,
+.beamThree {
+  width: 22vw;
+  min-width: 12rem;
+  height: 130vh;
+  top: -15vh;
+  border-radius: 999px;
+  filter: blur(18px);
+  mix-blend-mode: screen;
+  opacity: 0.24;
+}
+
+.beamOne {
+  left: 9vw;
+  background: linear-gradient(180deg, transparent, rgba(0, 229, 255, 0.32), transparent);
+  animation: sweepBeamOne 18s ease-in-out infinite alternate;
+}
+
+.beamTwo {
+  left: 45vw;
+  background: linear-gradient(180deg, transparent, rgba(255, 45, 155, 0.32), rgba(168, 85, 247, 0.22), transparent);
+  animation: sweepBeamTwo 22s ease-in-out infinite alternate;
+}
+
+.beamThree {
+  right: 4vw;
+  background: linear-gradient(180deg, transparent, rgba(255, 230, 0, 0.2), rgba(57, 255, 20, 0.18), transparent);
+  animation: sweepBeamThree 20s ease-in-out infinite alternate;
+}
+
+.ringOne,
+.ringTwo {
+  width: 18rem;
+  height: 18rem;
+  border: 0.35rem solid rgba(0, 229, 255, 0.2);
+  border-radius: 44% 56% 52% 48%;
+  box-shadow:
+    0 0 46px rgba(0, 229, 255, 0.12),
+    inset 0 0 36px rgba(0, 229, 255, 0.06);
+}
+
+.ringOne {
+  top: 18vh;
+  left: 5vw;
+  animation: spinAndFloat 26s linear infinite;
+}
+
+.ringTwo {
+  right: 7vw;
+  bottom: 12vh;
+  border-color: rgba(255, 45, 155, 0.22);
+  box-shadow:
+    0 0 46px rgba(255, 45, 155, 0.12),
+    inset 0 0 36px rgba(255, 45, 155, 0.06);
+  animation: spinAndFloat 31s linear infinite reverse;
+}
+
+.meshOne,
+.meshTwo {
+  width: 28rem;
+  height: 28rem;
+  opacity: 0.28;
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.28) 1px, transparent 1px);
+  background-size: 2.1rem 2.1rem;
+  mask-image: radial-gradient(circle, #000 0 54%, transparent 72%);
+}
+
+.meshOne {
+  left: -8rem;
+  bottom: 10vh;
+  transform: rotate(18deg);
+  animation: meshGlideOne 20s ease-in-out infinite alternate;
+}
+
+.meshTwo {
+  top: 14vh;
+  right: -10rem;
+  background-image:
+    linear-gradient(rgba(255, 45, 155, 0.26) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 45, 155, 0.26) 1px, transparent 1px);
+  transform: rotate(-14deg);
+  animation: meshGlideTwo 24s ease-in-out infinite alternate;
+}
+
+.pulseGrid {
+  inset: -8rem;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(255, 45, 155, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.22) 1px, transparent 1px);
+  background-size: 6rem 6rem;
+  transform: rotate(-8deg);
+  animation: pulseGrid 16s ease-in-out infinite alternate;
+}
+
+.sparkField {
+  inset: 0;
+  opacity: 0.46;
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.78) 0 1px, transparent 1.6px),
+    radial-gradient(circle, rgba(0, 229, 255, 0.42) 0 1px, transparent 1.8px),
+    radial-gradient(circle, rgba(255, 45, 155, 0.32) 0 1px, transparent 1.6px);
+  background-position:
+    0 0,
+    3rem 4rem,
+    8rem 2rem;
+  background-size:
+    9rem 9rem,
+    13rem 13rem,
+    17rem 17rem;
+  animation: starDrift 38s linear infinite;
+}
+
+@keyframes driftRibbonOne {
+  from {
+    transform: translate3d(-4vw, -2rem, 0) rotate(-12deg) scale(0.95);
+  }
+
+  to {
+    transform: translate3d(12vw, 3rem, 0) rotate(8deg) scale(1.08);
+  }
+}
+
+@keyframes driftRibbonTwo {
+  from {
+    transform: translate3d(6vw, 2rem, 0) rotate(14deg) scale(1);
+  }
+
+  to {
+    transform: translate3d(-12vw, -3rem, 0) rotate(-8deg) scale(1.06);
+  }
+}
+
+@keyframes driftRibbonThree {
+  from {
+    transform: translate3d(-6vw, 2rem, 0) rotate(4deg) scale(0.96);
+  }
+
+  to {
+    transform: translate3d(9vw, -4rem, 0) rotate(-10deg) scale(1.08);
+  }
+}
+
+@keyframes spinAndFloat {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(1.5rem, -2rem, 0) rotate(180deg);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0) rotate(360deg);
+  }
+}
+
+@keyframes sweepBeamOne {
+  from {
+    transform: translate3d(-8vw, 3vh, 0) rotate(18deg) scaleX(0.86);
+  }
+
+  to {
+    transform: translate3d(10vw, -5vh, 0) rotate(24deg) scaleX(1.08);
+  }
+}
+
+@keyframes sweepBeamTwo {
+  from {
+    transform: translate3d(8vw, -4vh, 0) rotate(-16deg) scaleX(0.9);
+  }
+
+  to {
+    transform: translate3d(-12vw, 5vh, 0) rotate(-24deg) scaleX(1.06);
+  }
+}
+
+@keyframes sweepBeamThree {
+  from {
+    transform: translate3d(5vw, 4vh, 0) rotate(12deg) scaleX(0.88);
+  }
+
+  to {
+    transform: translate3d(-9vw, -4vh, 0) rotate(20deg) scaleX(1.05);
+  }
+}
+
+@keyframes meshGlideOne {
+  from {
+    transform: translate3d(-1rem, 1rem, 0) rotate(18deg);
+  }
+
+  to {
+    transform: translate3d(4rem, -2rem, 0) rotate(28deg);
+  }
+}
+
+@keyframes meshGlideTwo {
+  from {
+    transform: translate3d(1rem, -1rem, 0) rotate(-14deg);
+  }
+
+  to {
+    transform: translate3d(-4rem, 2rem, 0) rotate(-24deg);
+  }
+}
+
+@keyframes pulseGrid {
+  from {
+    transform: translate3d(-3rem, 1rem, 0) rotate(-8deg) scale(1);
+    background-position: 0 0;
+  }
+
+  to {
+    transform: translate3d(3rem, -2rem, 0) rotate(-12deg) scale(1.05);
+    background-position: 8rem -6rem;
+  }
+}
+
+@keyframes starDrift {
+  to {
+    background-position:
+      22rem 14rem,
+      -14rem 20rem,
+      18rem -10rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ribbonOne,
+  .ribbonTwo,
+  .ribbonThree {
+    width: 105vw;
+    height: 14rem;
+  }
+
+  .beamOne,
+  .beamTwo,
+  .beamThree {
+    width: 42vw;
+    min-width: 9rem;
+    opacity: 0.18;
+  }
+
+  .ringOne,
+  .ringTwo {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .meshOne,
+  .meshTwo {
+    width: 18rem;
+    height: 18rem;
+  }
+}

@@ -10,11 +10,45 @@
   inset: 0;
   z-index: -2;
   content: '';
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 45, 155, 0.18), transparent 28rem),
+    radial-gradient(circle at 85% 65%, rgba(0, 229, 255, 0.16), transparent 24rem),
+    rgba(7, 7, 26, 0.74);
 }
 
 .alt::before {
-  background: var(--bg-2);
+  background:
+    radial-gradient(circle at 80% 10%, rgba(168, 85, 247, 0.18), transparent 26rem),
+    radial-gradient(circle at 18% 80%, rgba(255, 106, 0, 0.16), transparent 24rem),
+    rgba(13, 13, 36, 0.72);
+}
+
+.section::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: '';
+  opacity: 0.58;
+  background:
+    repeating-linear-gradient(
+      115deg,
+      transparent 0 4.5rem,
+      rgba(0, 229, 255, 0.12) 4.5rem 4.65rem,
+      transparent 4.65rem 8rem
+    ),
+    repeating-linear-gradient(
+      35deg,
+      transparent 0 6rem,
+      rgba(255, 45, 155, 0.08) 6rem 6.12rem,
+      transparent 6.12rem 11rem
+    ),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0 1px, transparent 1.5px);
+  background-size:
+    100% 100%,
+    100% 100%,
+    8rem 8rem;
+  animation: sectionMotion 18s linear infinite;
 }
 
 .inner {
@@ -53,6 +87,15 @@
   color: rgba(240, 238, 255, 0.64);
   font-size: 1.05rem;
   line-height: 1.6;
+}
+
+@keyframes sectionMotion {
+  to {
+    background-position:
+      14rem 8rem,
+      -12rem 10rem,
+      12rem -10rem;
+  }
 }
 
 @media (max-width: 640px) {
