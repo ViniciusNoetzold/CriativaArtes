@@ -1,47 +1,13 @@
-.heroCanvas,
-.sectionCanvas {
-  position: absolute !important;
+.globalCanvasFrame {
+  position: fixed;
   inset: 0;
-  width: 100% !important;
-  height: 100% !important;
-  pointer-events: none;
-}
-
-.heroCanvas {
-  z-index: 1;
-}
-
-.sectionCanvas {
   z-index: 0;
-  opacity: 0.86;
-}
-
-.sectionCanvasSlot {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
   overflow: hidden;
   pointer-events: none;
+  contain: layout paint size;
 }
 
-.iconCanvas {
-  position: relative;
-  z-index: 1;
-  width: 100% !important;
-  height: 6.8rem !important;
-  margin-bottom: 0.35rem;
-  pointer-events: none;
-}
-
-.tileCanvas {
-  position: absolute !important;
-  inset: 0;
-  width: 100% !important;
-  height: 100% !important;
-  pointer-events: none;
-}
-
-.orbCanvas {
+.globalCanvas {
   width: 100% !important;
   height: 100% !important;
   pointer-events: none;

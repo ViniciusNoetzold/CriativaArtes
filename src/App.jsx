@@ -7,11 +7,16 @@ import NavBar from './components/NavBar.jsx';
 import Process from './components/Process.jsx';
 import Products from './components/Products.jsx';
 import SiteBackground from './components/SiteBackground.jsx';
+import VisualBackground3D from './components/three/VisualBackground3D.jsx';
+import useActiveScene from './hooks/useActiveScene.js';
 
 export default function App() {
+  const activeScene = useActiveScene();
+
   return (
     <>
-      <SiteBackground />
+      <SiteBackground activeScene={activeScene} />
+      <VisualBackground3D activeScene={activeScene} />
       <CursorTrail />
       <NavBar />
       <main>

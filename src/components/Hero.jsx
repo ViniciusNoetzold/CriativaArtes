@@ -1,12 +1,11 @@
 import { contact } from '../data/siteContent.js';
 import AnimatedHeadline from './AnimatedHeadline.jsx';
 import { InstagramIcon, WhatsAppIcon } from './SocialIcon.jsx';
-import HeroScene from './three/HeroScene.jsx';
 import styles from './Hero.module.css';
 
 export default function Hero() {
   return (
-    <section id="hero" className={styles.hero}>
+    <section id="hero" className={styles.hero} data-scene-section="hero">
       <div className={styles.animatedBackdrop} aria-hidden="true">
         <span className={styles.backdropOrbOne} />
         <span className={styles.backdropOrbTwo} />
@@ -15,7 +14,6 @@ export default function Hero() {
         <span className={styles.backdropRingTwo} />
         <span className={styles.backdropRibbon} />
       </div>
-      <HeroScene />
       <div className={styles.noise} aria-hidden="true" />
 
       <div className={styles.content}>

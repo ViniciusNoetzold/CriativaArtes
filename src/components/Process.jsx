@@ -2,13 +2,11 @@ import { Fragment } from 'react';
 import { steps } from '../data/siteContent.js';
 import Reveal from './Reveal.jsx';
 import section from './Section.module.css';
-import SectionScene from './three/SectionScene.jsx';
 import styles from './Process.module.css';
 
 export default function Process() {
   return (
-    <section id="como-funciona" className={section.section}>
-      <SectionScene variant="process" />
+    <section id="como-funciona" className={section.section} data-scene-section="process">
       <div className={section.inner}>
         <Reveal className={section.header}>
           <div className={section.label}>✦ Simples assim</div>

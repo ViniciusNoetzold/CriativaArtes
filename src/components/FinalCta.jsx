@@ -2,13 +2,11 @@ import { contact } from '../data/siteContent.js';
 import Reveal from './Reveal.jsx';
 import section from './Section.module.css';
 import { InstagramIcon, WhatsAppIcon } from './SocialIcon.jsx';
-import SectionScene from './three/SectionScene.jsx';
 import styles from './FinalCta.module.css';
 
 export default function FinalCta() {
   return (
-    <section id="cta-final" className={`${section.section} ${styles.ctaSection}`}>
-      <SectionScene variant="cta" />
+    <section id="cta-final" className={`${section.section} ${styles.ctaSection}`} data-scene-section="cta">
       <Reveal className={styles.box}>
         <div className={section.label}>✦ Bora personalizar?</div>
         <h2 className={`${section.title} ${styles.title}`}>

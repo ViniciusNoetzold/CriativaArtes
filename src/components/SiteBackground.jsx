@@ -1,8 +1,8 @@
 import styles from './SiteBackground.module.css';
 
-export default function SiteBackground() {
+export default function SiteBackground({ activeScene = 'hero' }) {
   return (
-    <div className={styles.background} aria-hidden="true">
+    <div className={styles.background} data-active-scene={activeScene} aria-hidden="true">
       <span className={styles.ribbonOne} />
       <span className={styles.ribbonTwo} />
       <span className={styles.ribbonThree} />

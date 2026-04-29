@@ -1,13 +1,11 @@
 import { products } from '../data/siteContent.js';
 import Reveal from './Reveal.jsx';
 import section from './Section.module.css';
-import SectionScene from './three/SectionScene.jsx';
 import styles from './Products.module.css';
 
 export default function Products() {
   return (
-    <section id="produtos" className={`${section.section} ${section.alt}`}>
-      <SectionScene variant="products" />
+    <section id="produtos" className={`${section.section} ${section.alt}`} data-scene-section="products">
       <div className={section.inner}>
         <Reveal className={section.header}>
           <div className={section.label}>✦ O que personalizamos</div>
