@@ -6,6 +6,7 @@ export default function Reveal({
   className = '',
   children,
   threshold = 0.15,
+  ...props
 }) {
   const [isVisible, setIsVisible] = useState(false);
   const ref = useRef(null);
@@ -33,7 +34,7 @@ export default function Reveal({
     .join(' ');
 
   return (
-    <Element ref={ref} className={classes} data-visible={isVisible ? 'true' : 'false'}>
+    <Element ref={ref} className={classes} data-visible={isVisible ? 'true' : 'false'} {...props}>
       {children}
     </Element>
   );

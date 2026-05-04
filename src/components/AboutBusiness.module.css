@@ -1,0 +1,208 @@
+.about::before {
+  background:
+    radial-gradient(circle at 18% 18%, rgba(0, 229, 255, 0.16), transparent 24rem),
+    radial-gradient(circle at 84% 76%, rgba(255, 45, 155, 0.16), transparent 26rem),
+    rgba(7, 7, 26, 0.72);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(20rem, 1.05fr);
+  gap: 2rem;
+  align-items: center;
+}
+
+.story {
+  max-width: 36rem;
+}
+
+.title {
+  font-size: 4rem;
+}
+
+.lead {
+  margin: 0 0 1rem;
+  color: rgba(240, 238, 255, 0.78);
+  font-size: 1.12rem;
+  font-weight: 800;
+  line-height: 1.65;
+}
+
+.copy {
+  margin: 0;
+  color: rgba(240, 238, 255, 0.62);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 2rem;
+}
+
+.metric {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+}
+
+.metric strong {
+  display: block;
+  color: var(--cyan);
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  line-height: 1;
+}
+
+.metric span {
+  display: block;
+  margin-top: 0.25rem;
+  color: rgba(240, 238, 255, 0.58);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.panel {
+  position: relative;
+  padding: 1.1rem;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+}
+
+.panel::before {
+  position: absolute;
+  inset: -20%;
+  z-index: -1;
+  content: '';
+  background:
+    linear-gradient(120deg, transparent, rgba(0, 229, 255, 0.12), transparent),
+    linear-gradient(250deg, transparent, rgba(255, 45, 155, 0.12), transparent);
+  animation: panelSweep 9s ease-in-out infinite alternate;
+}
+
+.panelHeader {
+  padding: 1rem 1rem 0.4rem;
+}
+
+.panelKicker {
+  color: var(--yellow);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.panelHeader h3 {
+  margin: 0.55rem 0 0;
+  font-family: var(--font-display);
+  font-size: 2.35rem;
+  line-height: 1;
+}
+
+.valueGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin-top: 1rem;
+}
+
+.valueCard {
+  --value-color: var(--magenta);
+  position: relative;
+  min-height: 12.2rem;
+  padding: 1.2rem;
+  overflow: hidden;
+  background: rgba(7, 7, 26, 0.62);
+  border: 1px solid color-mix(in srgb, var(--value-color), transparent 58%);
+  border-radius: 14px;
+  transition:
+    transform 0.24s ease,
+    border-color 0.24s ease,
+    box-shadow 0.24s ease;
+}
+
+.valueCard:hover {
+  border-color: color-mix(in srgb, var(--value-color), transparent 24%);
+  box-shadow: 0 18px 42px color-mix(in srgb, var(--value-color), transparent 82%);
+  transform: translateY(-4px);
+}
+
+.valueDot {
+  display: block;
+  width: 0.82rem;
+  height: 0.82rem;
+  margin-bottom: 1.1rem;
+  background: var(--value-color);
+  border-radius: 999px;
+  box-shadow: 0 0 22px var(--value-color);
+}
+
+.valueCard h4 {
+  margin: 0 0 0.55rem;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.valueCard p {
+  margin: 0;
+  color: rgba(240, 238, 255, 0.6);
+  font-size: 0.88rem;
+  line-height: 1.58;
+}
+
+.magenta {
+  --value-color: #ff2d9b;
+}
+
+.cyan {
+  --value-color: #00e5ff;
+}
+
+.green {
+  --value-color: #39ff14;
+}
+
+.yellow {
+  --value-color: #ffe600;
+}
+
+@keyframes panelSweep {
+  from {
+    transform: translate3d(-2rem, -1rem, 0) rotate(-6deg);
+  }
+
+  to {
+    transform: translate3d(2rem, 1rem, 0) rotate(6deg);
+  }
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .story {
+    max-width: none;
+    text-align: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 2.8rem;
+  }
+
+  .metrics,
+  .valueGrid {
+    grid-template-columns: 1fr;
+  }
+}

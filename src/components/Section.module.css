@@ -3,6 +3,7 @@
   padding: 6rem 2rem;
   overflow: hidden;
   isolation: isolate;
+  scroll-margin-top: 5.5rem;
 }
 
 .section::before {

@@ -1,0 +1,539 @@
+.header {
+  max-width: 780px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.builder {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(19rem, 25rem);
+  gap: 1.2rem;
+  align-items: start;
+}
+
+.form,
+.summary {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(150deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.025)),
+    rgba(7, 7, 26, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow:
+    0 24px 68px rgba(0, 0, 0, 0.3),
+    inset 0 0 38px rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(18px);
+}
+
+.form {
+  padding: 1.4rem;
+}
+
+.summary {
+  position: sticky;
+  top: 6.5rem;
+  padding: 1.35rem;
+  border-color: rgba(57, 255, 20, 0.24);
+}
+
+.summary::before {
+  position: absolute;
+  inset: -30%;
+  z-index: -1;
+  content: '';
+  background: conic-gradient(from 140deg, transparent, rgba(57, 255, 20, 0.16), rgba(0, 229, 255, 0.16), transparent);
+  animation: priceGlow 10s linear infinite;
+}
+
+.clientRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 15rem);
+  gap: 1rem;
+  margin-bottom: 1.35rem;
+}
+
+.field {
+  display: grid;
+  gap: 0.48rem;
+}
+
+.field span,
+.group legend {
+  color: rgba(240, 238, 255, 0.82);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.field input,
+.field textarea,
+.quantityControl {
+  width: 100%;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 12px;
+  outline: none;
+  box-shadow: inset 0 0 0 1px transparent;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.field input,
+.field textarea {
+  padding: 0.9rem 0.95rem;
+}
+
+.field textarea {
+  min-height: 7.3rem;
+  line-height: 1.45;
+  resize: vertical;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(240, 238, 255, 0.38);
+}
+
+.field input:focus,
+.field textarea:focus,
+.quantityControl:focus-within {
+  background: rgba(255, 255, 255, 0.095);
+  border-color: rgba(0, 229, 255, 0.52);
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 229, 255, 0.2),
+    0 0 22px rgba(0, 229, 255, 0.14);
+}
+
+.quantityControl {
+  display: grid;
+  grid-template-columns: 2.75rem minmax(0, 1fr) 2.75rem;
+  overflow: hidden;
+}
+
+.quantityControl button {
+  display: grid;
+  place-items: center;
+  color: var(--white);
+  font-size: 1.25rem;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.quantityControl button:hover,
+.quantityControl button:focus-visible {
+  color: var(--cyan);
+  background: rgba(0, 229, 255, 0.12);
+}
+
+.quantityControl input {
+  min-width: 0;
+  padding: 0.88rem 0.25rem;
+  font-weight: 900;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.quantityControl input::-webkit-outer-spin-button,
+.quantityControl input::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+}
+
+.group {
+  padding: 0;
+  margin: 0 0 1.35rem;
+  border: 0;
+}
+
+.group legend {
+  padding: 0;
+  margin-bottom: 0.82rem;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.72rem;
+}
+
+.option {
+  --option-color: var(--cyan);
+  position: relative;
+  display: grid;
+  min-height: 10.25rem;
+  padding: 1rem;
+  overflow: hidden;
+  cursor: pointer;
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--option-color), transparent 92%), rgba(255, 255, 255, 0.03)),
+    rgba(255, 255, 255, 0.045);
+  border: 1px solid color-mix(in srgb, var(--option-color), transparent 70%);
+  border-radius: 14px;
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+.option::after {
+  position: absolute;
+  right: -2.2rem;
+  bottom: -2.4rem;
+  width: 6.3rem;
+  height: 6.3rem;
+  pointer-events: none;
+  content: '';
+  background: var(--option-color);
+  border-radius: 999px;
+  filter: blur(34px);
+  opacity: 0.18;
+}
+
+.option input,
+.packageOption input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.option:has(input:checked),
+.option:hover {
+  border-color: color-mix(in srgb, var(--option-color), transparent 22%);
+  box-shadow:
+    0 14px 38px rgba(0, 0, 0, 0.22),
+    0 0 26px color-mix(in srgb, var(--option-color), transparent 82%);
+  transform: translateY(-2px);
+}
+
+.option:has(input:checked) {
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--option-color), transparent 82%), rgba(255, 255, 255, 0.05)),
+    rgba(255, 255, 255, 0.06);
+}
+
+.optionTitle {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.optionText {
+  display: block;
+  color: rgba(240, 238, 255, 0.58);
+  font-size: 0.83rem;
+  line-height: 1.45;
+}
+
+.optionPrice {
+  align-self: end;
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.32rem 0.58rem;
+  margin-top: 0.85rem;
+  color: color-mix(in srgb, var(--option-color), white 34%);
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  background: color-mix(in srgb, var(--option-color), transparent 88%);
+  border: 1px solid color-mix(in srgb, var(--option-color), transparent 64%);
+  border-radius: 999px;
+}
+
+.magenta {
+  --option-color: #ff2d9b;
+}
+
+.cyan {
+  --option-color: #00e5ff;
+}
+
+.yellow {
+  --option-color: #ffe600;
+}
+
+.orange {
+  --option-color: #ff6a00;
+}
+
+.purple {
+  --option-color: #a855f7;
+}
+
+.green {
+  --option-color: #39ff14;
+}
+
+.otherField {
+  margin-bottom: 1.35rem;
+}
+
+.packageGrid {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.packageOption {
+  position: relative;
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.88rem 0.95rem 0.88rem 2.7rem;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 13px;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.packageOption::before,
+.packageOption::after {
+  position: absolute;
+  content: '';
+  border-radius: 999px;
+}
+
+.packageOption::before {
+  top: 1rem;
+  left: 1rem;
+  width: 0.92rem;
+  height: 0.92rem;
+  border: 2px solid rgba(240, 238, 255, 0.44);
+}
+
+.packageOption::after {
+  top: 1.24rem;
+  left: 1.24rem;
+  width: 0.44rem;
+  height: 0.44rem;
+  background: var(--cyan);
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.75);
+  opacity: 0;
+  transform: scale(0.45);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.packageOption:hover,
+.packageOption:has(input:checked) {
+  background: rgba(0, 229, 255, 0.075);
+  border-color: rgba(0, 229, 255, 0.34);
+  transform: translateX(3px);
+}
+
+.packageOption:has(input:checked)::before {
+  border-color: rgba(0, 229, 255, 0.7);
+}
+
+.packageOption:has(input:checked)::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.packageOption strong,
+.packageOption small {
+  display: block;
+}
+
+.packageOption strong {
+  margin-bottom: 0.2rem;
+  color: #fff;
+  font-size: 0.94rem;
+}
+
+.packageOption small {
+  color: rgba(240, 238, 255, 0.55);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.summaryLabel {
+  display: inline-flex;
+  margin-bottom: 0.55rem;
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.total {
+  display: block;
+  margin-bottom: 0.65rem;
+  font-family: var(--font-display);
+  font-size: 4.1rem;
+  line-height: 0.92;
+}
+
+.priceNote {
+  margin: 0 0 1.1rem;
+  color: rgba(240, 238, 255, 0.62);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.resume {
+  display: grid;
+  gap: 0.72rem;
+  padding: 0;
+  margin: 0 0 1.1rem;
+}
+
+.resume div {
+  display: grid;
+  grid-template-columns: 6.7rem minmax(0, 1fr);
+  gap: 0.65rem;
+  align-items: baseline;
+  padding-bottom: 0.72rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.resume dt {
+  color: rgba(240, 238, 255, 0.48);
+  font-size: 0.74rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.resume dd {
+  min-width: 0;
+  margin: 0;
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+  text-transform: capitalize;
+}
+
+.whatsappButton {
+  display: inline-flex;
+  gap: 0.58rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3.25rem;
+  color: #fff;
+  font-weight: 900;
+  text-align: center;
+  text-decoration: none;
+  background: linear-gradient(135deg, #25d366, #128c7e);
+  border-radius: 999px;
+  box-shadow: 0 0 28px rgba(37, 211, 102, 0.34);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.whatsappButton:hover,
+.whatsappButton:focus-visible {
+  box-shadow: 0 0 40px rgba(37, 211, 102, 0.55);
+  transform: translateY(-2px);
+}
+
+.whatsappIcon {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: 0 0 auto;
+}
+
+.preview {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.preview span {
+  display: block;
+  margin-bottom: 0.48rem;
+  color: var(--cyan);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.preview p {
+  max-height: 10rem;
+  padding-right: 0.25rem;
+  margin: 0;
+  overflow: auto;
+  color: rgba(240, 238, 255, 0.58);
+  font-size: 0.8rem;
+  line-height: 1.55;
+  white-space: pre-line;
+}
+
+@keyframes priceGlow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 980px) {
+  .builder {
+    grid-template-columns: 1fr;
+  }
+
+  .summary {
+    position: relative;
+    top: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .form,
+  .summary {
+    border-radius: 14px;
+  }
+
+  .form {
+    padding: 1rem;
+  }
+
+  .clientRow,
+  .productGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .option {
+    min-height: 8.5rem;
+  }
+
+  .total {
+    font-size: 3.2rem;
+  }
+
+  .resume div {
+    grid-template-columns: 1fr;
+    gap: 0.22rem;
+  }
+}

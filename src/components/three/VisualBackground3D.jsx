@@ -11,10 +11,20 @@ const scenes = {
     camera: [0, 0, 7.4],
     spark: '#f0eeff',
   },
+  about: {
+    colors: ['#00e5ff', '#ff2d9b', '#39ff14', '#ffe600'],
+    camera: [0, 0, 7.2],
+    spark: '#00e5ff',
+  },
   products: {
     colors: ['#ff2d9b', '#00e5ff', '#ffe600', '#39ff14'],
     camera: [0, 0, 7],
     spark: '#00e5ff',
+  },
+  customizer: {
+    colors: ['#39ff14', '#00e5ff', '#ff2d9b', '#ffe600'],
+    camera: [0, 0, 7.1],
+    spark: '#39ff14',
   },
   process: {
     colors: ['#00e5ff', '#a855f7', '#39ff14', '#ffe600'],
@@ -25,6 +35,11 @@ const scenes = {
     colors: ['#ff2d9b', '#ff6a00', '#00e5ff', '#a855f7'],
     camera: [0, 0, 7.2],
     spark: '#ff2d9b',
+  },
+  testimonials: {
+    colors: ['#a855f7', '#ff2d9b', '#00e5ff', '#ffe600'],
+    camera: [0, 0, 7],
+    spark: '#a855f7',
   },
   cta: {
     colors: ['#39ff14', '#00e5ff', '#ff2d9b', '#ffe600'],
@@ -281,9 +296,12 @@ function CtaScene({ colors }) {
 }
 
 function SceneByVariant({ variant, colors }) {
+  if (variant === 'about') return <ProcessScene colors={colors} />;
   if (variant === 'products') return <ProductsScene colors={colors} />;
+  if (variant === 'customizer') return <CtaScene colors={colors} />;
   if (variant === 'process') return <ProcessScene colors={colors} />;
   if (variant === 'gallery') return <GalleryScene colors={colors} />;
+  if (variant === 'testimonials') return <GalleryScene colors={colors} />;
   if (variant === 'cta') return <CtaScene colors={colors} />;
   return <HeroScene colors={colors} />;
 }
