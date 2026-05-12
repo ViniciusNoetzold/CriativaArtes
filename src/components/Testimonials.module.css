@@ -1,28 +1,30 @@
 .testimonials::before {
   background:
-    radial-gradient(circle at 82% 18%, rgba(255, 230, 0, 0.14), transparent 24rem),
-    radial-gradient(circle at 15% 78%, rgba(168, 85, 247, 0.16), transparent 28rem),
-    rgba(13, 13, 36, 0.72);
+    radial-gradient(circle at 82% 18%, rgba(255, 218, 85, 0.09), transparent 24rem),
+    radial-gradient(circle at 15% 78%, rgba(165, 108, 255, 0.1), transparent 28rem),
+    rgba(37, 16, 56, 0.74);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 0.9rem;
+  min-width: 0;
 }
 
 .card {
   --testimonial-color: var(--magenta);
   position: relative;
-  min-height: 16rem;
-  padding: 1.5rem;
+  min-width: 0;
+  min-height: 13rem;
+  padding: 1.25rem;
   overflow: hidden;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025)),
-    rgba(7, 7, 26, 0.64);
+    linear-gradient(180deg, rgba(255, 248, 255, 0.07), rgba(255, 218, 85, 0.025)),
+    rgba(43, 18, 58, 0.66);
   border: 1px solid color-mix(in srgb, var(--testimonial-color), transparent 58%);
-  border-radius: 16px;
-  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.18);
+  border-radius: 8px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.18);
   transition:
     transform 0.25s ease,
     border-color 0.25s ease,
@@ -39,23 +41,23 @@
   background: var(--testimonial-color);
   border-radius: 999px;
   filter: blur(34px);
-  opacity: 0.16;
+  opacity: 0.1;
 }
 
 .card:hover {
   border-color: color-mix(in srgb, var(--testimonial-color), transparent 24%);
-  box-shadow: 0 28px 70px color-mix(in srgb, var(--testimonial-color), transparent 86%);
-  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+  transform: translateY(-3px);
 }
 
 .marker {
   display: block;
   width: 3.2rem;
   height: 0.28rem;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1rem;
   background: var(--testimonial-color);
   border-radius: 999px;
-  box-shadow: 0 0 20px var(--testimonial-color);
+  box-shadow: 0 0 14px var(--testimonial-color);
 }
 
 .card h3 {
@@ -63,7 +65,7 @@
   z-index: 1;
   margin: 0 0 0.8rem;
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.82rem;
   line-height: 1;
 }
 
@@ -71,21 +73,21 @@
   position: relative;
   z-index: 1;
   margin: 0;
-  color: rgba(240, 238, 255, 0.62);
+  color: rgba(255, 248, 255, 0.64);
   font-size: 0.96rem;
   line-height: 1.65;
 }
 
 .magenta {
-  --testimonial-color: #ff2d9b;
+  --testimonial-color: #ff4fa8;
 }
 
 .cyan {
-  --testimonial-color: #00e5ff;
+  --testimonial-color: #37e4ee;
 }
 
 .purple {
-  --testimonial-color: #a855f7;
+  --testimonial-color: #a56cff;
 }
 
 @media (max-width: 860px) {
@@ -95,5 +97,16 @@
 
   .card {
     min-height: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: 1.15rem;
+    border-radius: 8px;
+  }
+
+  .card h3 {
+    font-size: 1.75rem;
   }
 }

@@ -1,3 +1,4 @@
+import brandLogo from '../assets/brand/guria-arteira-logo.jpg';
 import { contact } from '../data/siteContent.js';
 import Reveal from './Reveal.jsx';
 import section from './Section.module.css';
@@ -13,20 +14,21 @@ export default function FinalCta() {
   return (
     <section id="cta-final" className={`${section.section} ${styles.ctaSection}`} data-scene-section="cta">
       <Reveal className={styles.box}>
+        <img className={styles.brandSeal} src={brandLogo} alt="Guria Arteira" loading="lazy" />
         <div className={section.label}>Bora personalizar?</div>
         <h2 className={`${section.title} ${styles.title}`}>
-          VOCÊ TEM A IDEIA!!
+          Você tem a ideia,
           <br />
-          <span className="rainbowText">NÓS PERSONALIZAMOS!!</span>
+          <span className="rainbowText">nós personalizamos</span>
         </h2>
         <p className={styles.copy}>
-          Fale com a gente pelo WhatsApp, conte sua ideia e receba um orçamento sem compromisso para uma peça única ou
-          para a quantidade que você precisar.
+          Fale com a Guria Arteira pelo WhatsApp, conte sua ideia e receba um orçamento sem compromisso para uma peça
+          única ou para a quantidade que você precisar.
         </p>
 
         <a className={styles.primaryButton} href={contact.whatsappUrl} target="_blank" rel="noopener noreferrer">
           <WhatsAppIcon className={styles.buttonIcon} />
-          Solicitar orçamento
+          Pedir orçamento no WhatsApp
         </a>
 
         <div className={styles.contacts}>
@@ -60,7 +62,7 @@ export default function FinalCta() {
         <div className={styles.mapFrame}>
           <iframe
             className={styles.map}
-            title="Localização Criativa Artes - Chapecó/SC"
+            title="Localização Guria Arteira - Chapecó/SC"
             src={googleMapEmbedUrl}
             width="100%"
             height="320"
@@ -68,13 +70,8 @@ export default function FinalCta() {
             allowFullScreen
             referrerPolicy="no-referrer-when-downgrade"
           />
-          <a
-            className={styles.mapLink}
-            href={googleMapUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {contact.city} · Ver mapa maior ↗
+          <a className={styles.mapLink} href={googleMapUrl} target="_blank" rel="noopener noreferrer">
+            {contact.city} · Ver mapa maior
           </a>
         </div>
       </Reveal>

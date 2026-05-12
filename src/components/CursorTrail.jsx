@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import styles from './CursorTrail.module.css';
 
 const TRAIL_COUNT = 12;
-const COLORS = ['#ff2d9b', '#00e5ff', '#ffe600', '#ff6a00', '#a855f7', '#39ff14'];
+const COLORS = ['#ff4fa8', '#37e4ee', '#ffda55', '#ff8b3d', '#a56cff', '#58df75'];
 
 export default function CursorTrail() {
   const layerRef = useRef(null);

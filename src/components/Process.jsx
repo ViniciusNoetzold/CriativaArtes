@@ -9,9 +9,9 @@ export default function Process() {
     <section id="como-funciona" className={section.section} data-scene-section="process">
       <div className={section.inner}>
         <Reveal className={section.header}>
-          <div className={section.label}>✦ Simples assim</div>
+          <div className={section.label}>Simples assim</div>
           <h2 className={section.title}>
-            COMO <span className="rainbowText">FUNCIONA</span>
+            Como <span className="rainbowText">funciona</span>
           </h2>
         </Reveal>
 

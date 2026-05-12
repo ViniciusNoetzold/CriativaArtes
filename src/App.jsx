@@ -1,4 +1,3 @@
-import CursorTrail from './components/CursorTrail.jsx';
 import AboutBusiness from './components/AboutBusiness.jsx';
 import FinalCta from './components/FinalCta.jsx';
 import Footer from './components/Footer.jsx';
@@ -20,7 +19,6 @@ export default function App() {
     <>
       <SiteBackground activeScene={activeScene} />
       <VisualBackground3D activeScene={activeScene} />
-      <CursorTrail />
       <NavBar />
       <main>
         <Hero />

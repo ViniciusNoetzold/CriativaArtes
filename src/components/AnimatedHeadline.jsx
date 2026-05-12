@@ -1,7 +1,7 @@
 import { heroLines } from '../data/siteContent.js';
 import styles from './AnimatedHeadline.module.css';
 
-const rainbowWords = new Set(['NÓS', 'PERSONALIZAMOS!!']);
+const rainbowWords = new Set(['personalizamos']);
 
 export default function AnimatedHeadline() {
   let wordIndex = 0;

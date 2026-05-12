@@ -48,7 +48,7 @@ export default function ProductCustomizer() {
 
     return [
       `Olá, tudo bem? Meu nome é ${name}.`,
-      `Estou entrando em contato pelo site e meu pedido é ${normalizedQuantity} unidade(s) de ${productName}.`,
+      `Estou entrando em contato pelo site da Guria Arteira e meu pedido é ${normalizedQuantity} unidade(s) de ${productName}.`,
       `Tipo de personalização: ${selectedPackage.name}.`,
       `Detalhes do pedido: ${details}`,
       priceLine,
@@ -61,13 +61,13 @@ export default function ProductCustomizer() {
     <section id="personalizar" className={section.section} data-scene-section="customizer">
       <div className={section.inner}>
         <Reveal className={styles.header}>
-          <div className={section.label}>Personalize seu pedido</div>
+          <div className={section.label}>Orçamento personalizado</div>
           <h2 className={section.title}>
-            MONTE SEU PRODUTO E <span className="rainbowText">CHAME NO WHATSAPP</span>
+            Organize seu pedido e <span className="rainbowText">chame no WhatsApp</span>
           </h2>
           <p className={section.sub}>
-            Escolha o item, o tipo de personalização e a quantidade. O site monta uma mensagem pronta para agilizar o
-            atendimento.
+            Escolha produto, quantidade e tipo de arte. A estimativa ajuda a iniciar a conversa; o valor final é
+            confirmado conforme material, prazo e disponibilidade.
           </p>
         </Reveal>
 
@@ -110,7 +110,7 @@ export default function ProductCustomizer() {
             </div>
 
             <fieldset className={styles.group}>
-              <legend>1. Escolha o produto</legend>
+              <legend>1. Produto</legend>
               <div className={styles.productGrid}>
                 {customizerProducts.map((product) => (
                   <label className={`${styles.option} ${styles[product.tone]}`} key={product.id}>
@@ -165,23 +165,24 @@ export default function ProductCustomizer() {
             </fieldset>
 
             <label className={styles.field}>
-              <span>O que vai na arte?</span>
+              <span>Detalhes da arte</span>
               <textarea
                 value={notes}
                 onChange={(event) => setNotes(event.target.value)}
-                placeholder="Ex: uma caneca com meu nome, flores em tons rosa e a frase Feliz Aniversário."
+                placeholder="Ex: caneca com meu nome, flores em tons rosa e a frase Feliz Aniversário."
                 rows="4"
               />
             </label>
           </Reveal>
 
           <Reveal className={styles.summary}>
-            <span className={styles.summaryLabel}>Pré-orçamento</span>
-            <strong className={styles.total}>{totalText}</strong>
-            <p className={styles.priceNote}>
-              Estimativa a partir de {unitText} por unidade. O valor final é confirmado no WhatsApp conforme arte,
-              material, prazo e disponibilidade.
-            </p>
+            <div className={styles.priceBox}>
+              <span className={styles.summaryLabel}>Pré-orçamento</span>
+              <strong className={styles.total}>{totalText}</strong>
+              <p className={styles.priceNote}>
+                Estimativa a partir de {unitText} por unidade. A confirmação acontece pelo WhatsApp.
+              </p>
+            </div>
 
             <dl className={styles.resume}>
               <div>
@@ -200,13 +201,13 @@ export default function ProductCustomizer() {
 
             <a className={styles.whatsappButton} href={whatsAppHref} target="_blank" rel="noopener noreferrer">
               <WhatsAppIcon className={styles.whatsappIcon} />
-              Enviar pedido no WhatsApp
+              Pedir orçamento no WhatsApp
             </a>
 
-            <div className={styles.preview}>
-              <span>Mensagem pronta</span>
+            <details className={styles.preview}>
+              <summary>Ver mensagem pronta</summary>
               <p>{whatsAppMessage}</p>
-            </div>
+            </details>
           </Reveal>
         </div>
       </div>

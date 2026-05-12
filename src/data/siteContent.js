@@ -15,24 +15,24 @@ export const contact = {
 export const navLinks = [
   { href: '#sobre', label: 'Sobre' },
   { href: '#produtos', label: 'Produtos' },
-  { href: '#personalizar', label: 'Personalizar' },
-  { href: '#como-funciona', label: 'Como Funciona' },
+  { href: '#personalizar', label: 'Orçamento' },
+  { href: '#como-funciona', label: 'Como funciona' },
   { href: '#galeria', label: 'Galeria' },
   { href: '#relatos', label: 'Relatos' },
   { href: '#cta-final', label: 'Contato' },
 ];
 
-export const heroLines = ['VOCÊ TEM', 'A IDEIA!!', 'NÓS PERSONALIZAMOS!!'];
+export const heroLines = ['Você tem a ideia,', 'nós personalizamos'];
 
 const productImage = (file) => new URL(`../assets/produtos/${file}`, import.meta.url).href;
 
 export const businessStory = {
   eyebrow: 'Desde 2019',
-  title: 'DA PAIXÃO POR FUTEBOL PARA A ARTE DE PERSONALIZAR',
+  title: 'PERSONALIZAÇÃO COM CARA DE PRESENTE E ACABAMENTO PROFISSIONAL',
   intro:
-    'A Criativa Artes nasceu do gosto por futebol, criando camisetas para equipes e ampliando aos poucos para presentes, brindes e produtos personalizados para diferentes ocasiões.',
+    'A Guria Arteira nasceu criando peças personalizadas para equipes e hoje atende presentes, empresas, eventos e datas especiais com produção sob demanda.',
   body:
-    'Hoje trabalhamos com sublimação, uma técnica limpa e sustentável, para transformar ideias em peças únicas com qualidade, cuidado e a quantidade que cada cliente precisa.',
+    'O processo combina atendimento próximo, alinhamento de arte antes da produção e sublimação para entregar cores vivas em canecas, camisetas, copos, almofadas, papelaria e brindes.',
   highlights: [
     { value: '2019', label: 'início da história' },
     { value: '1+', label: 'peça sob demanda' },
@@ -42,23 +42,23 @@ export const businessStory = {
 
 export const differentials = [
   {
-    title: 'A ideia que você sonhar',
-    description: 'Você conta o que imagina e a Criativa Artes desenvolve a personalização para transformar esse pedido em produto.',
+    title: 'Ideia bem direcionada',
+    description: 'Você envia referências, cores, tema ou logotipo e recebe orientação para transformar o pedido em um produto viável.',
     tone: 'magenta',
   },
   {
     title: 'Sem pedido mínimo',
-    description: 'Produzimos na quantidade que o cliente precisa, desde uma peça especial até demandas maiores para equipes e empresas.',
+    description: 'Produzimos desde uma peça especial até quantidades maiores para equipes, lembranças, ações comerciais e empresas.',
     tone: 'cyan',
   },
   {
-    title: 'Sublimação limpa',
-    description: 'A produção usa sublimação, técnica versátil, durável e mais limpa para criar cores vivas em diferentes materiais.',
+    title: 'Sublimação durável',
+    description: 'A técnica valoriza cores, fotos e estampas com acabamento limpo em diferentes materiais personalizados.',
     tone: 'green',
   },
   {
     title: 'Atendimento direto',
-    description: 'O contato acontece pelo WhatsApp, com conversa próxima para entender referências, cores, prazos e detalhes do projeto.',
+    description: 'O orçamento acontece pelo WhatsApp para alinhar prazo, arte, quantidade, material e retirada em Chapecó.',
     tone: 'yellow',
   },
 ];
@@ -89,28 +89,87 @@ export const products = [
     examples: ['Festas', 'Brindes', 'Infantil'],
   },
   {
-    name: 'Taças personalizadas',
-    description: 'Para casais, formaturas, eventos, lembranças e kits especiais.',
-    detail: 'Um produto leve e marcante para transformar pequenas datas em presente.',
-    tone: 'yellow',
-    image: productImage('573df70d-38be-443c-98fa-c4e22f84024f.jpg'),
-    examples: ['Casais', 'Eventos', 'Kits'],
+    name: 'Almofadas personalizadas',
+    description: 'Presentes afetivos, decoração temática e lembranças para datas especiais.',
+    detail: 'Boa opção para fotos, frases, personagens, nomes e composições mais afetivas.',
+    tone: 'purple',
+    image: productImage('fc65872f-38cb-4b43-831e-ede47f4e4f53.jpg'),
+    examples: ['Fotos', 'Natal', 'Família'],
   },
   {
-    name: 'Canetas e brindes',
-    description: 'Para empresas, escolas, consultórios e ações promocionais.',
-    detail: 'Boa escolha para pedidos em quantidade, com marca e contato visíveis.',
+    name: 'Papelaria e canetas',
+    description: 'Itens úteis para empresas, escolas, consultórios e eventos.',
+    detail: 'Ajuda a deixar marca, contato e identidade visual presentes no dia a dia.',
     tone: 'orange',
     image: productImage('f0da5838-08fb-4ff2-bec5-5077fa994206.jpg'),
-    examples: ['Empresas', 'Escolas', 'Eventos'],
+    examples: ['Canetas', 'Tags', 'Eventos'],
   },
   {
-    name: 'Presentes e lembranças',
-    description: 'Almofadas, lembranças natalinas, kits afetivos e produtos sob medida.',
-    detail: 'Você envia a ideia e a Criativa Artes encontra o melhor formato para produzir.',
+    name: 'Kits e lembranças',
+    description: 'Combinações sob medida para aniversários, Natal, empresas e ações especiais.',
+    detail: 'Você envia a ideia e a Guria Arteira indica o melhor conjunto para produzir.',
+    tone: 'yellow',
+    image: productImage('573df70d-38be-443c-98fa-c4e22f84024f.jpg'),
+    examples: ['Kits', 'Natal', 'Datas'],
+  },
+];
+
+export const productCategories = [
+  {
+    title: 'Canecas personalizadas',
+    description: 'Canecas de cerâmica, vidro e modelos para presente com foto, frase, nome ou marca.',
+    tone: 'magenta',
+    image: productImage('4028014d-c69f-46d8-99db-52f8970a9c58.jpg'),
+    examples: ['Fotos', 'Nomes', 'Logo'],
+  },
+  {
+    title: 'Camisetas',
+    description: 'Camisetas e uniformes para equipes, empresas, cursos, eventos e lembranças.',
+    tone: 'cyan',
+    image: productImage('8755a4a7-aef6-467e-967e-d969432d3781.jpg'),
+    examples: ['Times', 'Empresas', 'Eventos'],
+  },
+  {
+    title: 'Copos e squeezes',
+    description: 'Copos long drink, squeezes e opções para festas, brindes, aniversários e uso diário.',
+    tone: 'green',
+    image: productImage('732ed74b-cc23-4172-bef3-eb2447199293.jpg'),
+    examples: ['Festas', 'Infantil', 'Brindes'],
+  },
+  {
+    title: 'Almofadas',
+    description: 'Almofadas com fotos, frases, temas infantis, Natal e presentes afetivos.',
     tone: 'purple',
+    image: productImage('fc65872f-38cb-4b43-831e-ede47f4e4f53.jpg'),
+    examples: ['Fotos', 'Natal', 'Família'],
+  },
+  {
+    title: 'Papelaria personalizada',
+    description: 'Canetas, tags, lembranças e itens de apoio para eventos, escolas e empresas.',
+    tone: 'orange',
+    image: productImage('5f8ef339-3a71-42e0-9f9a-9363f882134f.jpg'),
+    examples: ['Canetas', 'Tags', 'Escolas'],
+  },
+  {
+    title: 'Kits presenteáveis',
+    description: 'Combinações de produtos personalizados para presentear com mais presença.',
+    tone: 'yellow',
+    image: productImage('573df70d-38be-443c-98fa-c4e22f84024f.jpg'),
+    examples: ['Presentes', 'Natal', 'Eventos'],
+  },
+  {
+    title: 'Brindes corporativos',
+    description: 'Produtos com marca para clientes, equipes, feiras, campanhas e ações comerciais.',
+    tone: 'cyan',
+    image: productImage('b119cd57-6cf6-433b-9b8d-978cf2633e6f.jpg'),
+    examples: ['Marca', 'Equipe', 'Campanhas'],
+  },
+  {
+    title: 'Datas comemorativas',
+    description: 'Presentes e lembranças para aniversário, Dia dos Pais, Natal, formaturas e ocasiões especiais.',
+    tone: 'magenta',
     image: productImage('ca5da38b-d204-4e3a-9805-65c3ff45c76e.jpg'),
-    examples: ['Natal', 'Datas', 'Família'],
+    examples: ['Natal', 'Aniversário', 'Formatura'],
   },
 ];
 
@@ -123,46 +182,60 @@ export const customizerProducts = [
     tone: 'magenta',
   },
   {
-    id: 'copo',
-    name: 'Copo long drink',
-    description: 'Festas, lembranças, brindes e eventos.',
-    basePrice: 18,
-    tone: 'cyan',
-  },
-  {
-    id: 'taca',
-    name: 'Taça',
-    description: 'Casais, formaturas, kits e datas especiais.',
-    basePrice: 32,
-    tone: 'yellow',
-  },
-  {
     id: 'camiseta',
     name: 'Camiseta ou uniforme',
     description: 'Times, empresas, cursos e eventos.',
     basePrice: 58,
+    tone: 'cyan',
+  },
+  {
+    id: 'copo',
+    name: 'Copo ou squeeze',
+    description: 'Festas, lembranças, brindes e eventos.',
+    basePrice: 18,
     tone: 'green',
   },
   {
-    id: 'caneta',
-    name: 'Caneta',
-    description: 'Brindes corporativos e pedidos em quantidade.',
+    id: 'almofada',
+    name: 'Almofada',
+    description: 'Fotos, frases, datas especiais e decoração.',
+    basePrice: 45,
+    tone: 'purple',
+  },
+  {
+    id: 'papelaria',
+    name: 'Papelaria',
+    description: 'Canetas, tags e itens de apoio personalizados.',
     basePrice: 7,
     tone: 'orange',
   },
   {
-    id: 'presente',
-    name: 'Presente personalizado',
-    description: 'Almofadas, lembranças e kits sob medida.',
-    basePrice: 45,
-    tone: 'purple',
+    id: 'kit',
+    name: 'Kit personalizado',
+    description: 'Combinações para presentes, datas e empresas.',
+    basePrice: 75,
+    tone: 'yellow',
+  },
+  {
+    id: 'brinde',
+    name: 'Brinde empresarial',
+    description: 'Produtos com marca para clientes e equipes.',
+    basePrice: 12,
+    tone: 'cyan',
+  },
+  {
+    id: 'datas',
+    name: 'Data comemorativa',
+    description: 'Natal, aniversário, formatura e ocasiões especiais.',
+    basePrice: 35,
+    tone: 'magenta',
   },
   {
     id: 'outros',
     name: 'Outros',
     description: 'Digite o produto para a equipe avaliar.',
     basePrice: null,
-    tone: 'cyan',
+    tone: 'purple',
   },
 ];
 
@@ -190,8 +263,8 @@ export const personalizationPackages = [
   },
   {
     id: 'arte-completa',
-    name: 'Pacote arte completa',
-    description: 'Criação mais detalhada com composição, cores e ajustes de layout.',
+    name: 'Arte completa',
+    description: 'Composição mais detalhada com cores, ajustes e organização da arte.',
     unitExtra: 9,
     setupFee: 25,
   },
@@ -201,23 +274,23 @@ export const steps = [
   {
     number: '1',
     tone: 'magenta',
-    title: 'VOCÊ MANDA A IDEIA',
+    title: 'VOCÊ ENVIA A IDEIA',
     description:
-      'Entre em contato pelo WhatsApp e nos conte o que você precisa. Fotos, referências, cores: quanto mais, melhor.',
+      'Chame no WhatsApp e conte produto, quantidade, prazo, tema, fotos, referências, cores ou logo.',
   },
   {
     number: '2',
     tone: 'cyan',
-    title: 'NÓS CRIAMOS',
+    title: 'A ARTE É ALINHADA',
     description:
-      'Nossa equipe desenvolve o projeto personalizado e envia a arte para aprovação antes de produzir.',
+      'A equipe avalia o pedido, orienta o melhor caminho e confirma detalhes antes de produzir.',
   },
   {
     number: '3',
     tone: 'green',
-    title: 'VOCÊ RECEBE',
+    title: 'O PRODUTO É FINALIZADO',
     description:
-      'Produto finalizado com qualidade e carinho, pronto para surpreender. Entrega em Chapecó e região.',
+      'A peça sai personalizada, pronta para presentear, divulgar sua marca ou marcar a data especial.',
   },
 ];
 
@@ -247,8 +320,8 @@ export const galleryItems = [
     image: productImage('2f8a3df6-5981-4a0f-b2e4-cfdd6395cb74.jpg'),
   },
   {
-    label: 'Almofadas personalizadas',
-    tag: 'Presentes',
+    label: 'Camisetas com frases personalizadas',
+    tag: 'Camisetas',
     tone: 'purple',
     image: productImage('33baa264-22e6-4d68-b2d8-e4d63baf8039.jpg'),
   },
@@ -266,7 +339,7 @@ export const galleryItems = [
   },
   {
     label: 'Canetas personalizadas coloridas',
-    tag: 'Canetas',
+    tag: 'Papelaria',
     tone: 'green',
     image: productImage('5f8ef339-3a71-42e0-9f9a-9363f882134f.jpg'),
   },
@@ -289,7 +362,7 @@ export const galleryItems = [
     image: productImage('8755a4a7-aef6-467e-967e-d969432d3781.jpg'),
   },
   {
-    label: 'Taças Nivea personalizadas',
+    label: 'Taças personalizadas',
     tag: 'Taças',
     tone: 'magenta',
     image: productImage('99a592f0-c5fb-4a7e-88cd-76e89210323e.jpg'),
@@ -308,25 +381,25 @@ export const galleryItems = [
   },
   {
     label: 'Canecas corporativas',
-    tag: 'Canecas',
+    tag: 'Empresas',
     tone: 'orange',
     image: productImage('b119cd57-6cf6-433b-9b8d-978cf2633e6f.jpg'),
   },
   {
     label: 'Kits de uniformes esportivos',
-    tag: 'Uniformes',
+    tag: 'Kits',
     tone: 'yellow',
     image: productImage('b900146d-66e1-4d19-86fe-99175b7c6b29.jpg'),
   },
   {
     label: 'Canetas para empresa',
-    tag: 'Canetas',
+    tag: 'Empresas',
     tone: 'green',
     image: productImage('b961615a-a73e-4190-a180-d258479c6fd6.jpg'),
   },
   {
     label: 'Lembranças natalinas',
-    tag: 'Presentes',
+    tag: 'Datas',
     tone: 'magenta',
     image: productImage('ca5da38b-d204-4e3a-9805-65c3ff45c76e.jpg'),
   },
@@ -350,13 +423,13 @@ export const galleryItems = [
   },
   {
     label: 'Canetas em grande quantidade',
-    tag: 'Canetas',
+    tag: 'Papelaria',
     tone: 'magenta',
     image: productImage('f0da5838-08fb-4ff2-bec5-5077fa994206.jpg'),
   },
   {
     label: 'Almofadas de Natal',
-    tag: 'Presentes',
+    tag: 'Almofadas',
     tone: 'orange',
     image: productImage('fc65872f-38cb-4b43-831e-ede47f4e4f53.jpg'),
   },
@@ -370,18 +443,18 @@ export const galleryItems = [
 
 export const testimonials = [
   {
-    title: 'Relatos reais dos trabalhos',
-    description: 'A seção está preparada para destacar clientes que já receberam produtos personalizados e compartilharam suas experiências.',
+    title: 'Arte alinhada antes da produção',
+    description: 'O pedido é conferido com o cliente para reduzir dúvidas sobre cores, nomes, tema, quantidade e acabamento.',
     tone: 'magenta',
   },
   {
-    title: 'Antes da produção',
-    description: 'Cada arte pode ser alinhada com o cliente antes de seguir para a produção, reduzindo dúvidas e deixando o resultado mais fiel.',
+    title: 'Pedidos de uma peça ou mais',
+    description: 'A produção atende presentes únicos, kits, lembranças e demandas maiores para equipes e empresas.',
     tone: 'cyan',
   },
   {
-    title: 'Fotos entram aqui',
-    description: 'Quando as imagens dos trabalhos chegarem, elas entram junto dos relatos para mostrar acabamento, variedade e carinho em cada peça.',
+    title: 'Trabalhos reais na galeria',
+    description: 'As fotos do site mostram variedade de produtos já personalizados, de uniformes a canecas, copos e almofadas.',
     tone: 'purple',
   },
 ];

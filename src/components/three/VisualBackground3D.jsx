@@ -7,44 +7,44 @@ import { canUseWebGL } from './webgl.js';
 
 const scenes = {
   hero: {
-    colors: ['#ff2d9b', '#00e5ff', '#ffe600', '#a855f7'],
+    colors: ['#ff4fa8', '#37e4ee', '#ffda55', '#a56cff'],
     camera: [0, 0, 7.4],
-    spark: '#f0eeff',
+    spark: '#fff8ff',
   },
   about: {
-    colors: ['#00e5ff', '#ff2d9b', '#39ff14', '#ffe600'],
+    colors: ['#37e4ee', '#ff4fa8', '#58df75', '#ffda55'],
     camera: [0, 0, 7.2],
-    spark: '#00e5ff',
+    spark: '#37e4ee',
   },
   products: {
-    colors: ['#ff2d9b', '#00e5ff', '#ffe600', '#39ff14'],
+    colors: ['#ff4fa8', '#37e4ee', '#ffda55', '#58df75'],
     camera: [0, 0, 7],
-    spark: '#00e5ff',
+    spark: '#37e4ee',
   },
   customizer: {
-    colors: ['#39ff14', '#00e5ff', '#ff2d9b', '#ffe600'],
+    colors: ['#58df75', '#37e4ee', '#ff4fa8', '#ffda55'],
     camera: [0, 0, 7.1],
-    spark: '#39ff14',
+    spark: '#58df75',
   },
   process: {
-    colors: ['#00e5ff', '#a855f7', '#39ff14', '#ffe600'],
+    colors: ['#37e4ee', '#a56cff', '#58df75', '#ffda55'],
     camera: [0, 0, 7.4],
-    spark: '#a855f7',
+    spark: '#a56cff',
   },
   gallery: {
-    colors: ['#ff2d9b', '#ff6a00', '#00e5ff', '#a855f7'],
+    colors: ['#ff4fa8', '#ff8b3d', '#37e4ee', '#a56cff'],
     camera: [0, 0, 7.2],
-    spark: '#ff2d9b',
+    spark: '#ff4fa8',
   },
   testimonials: {
-    colors: ['#a855f7', '#ff2d9b', '#00e5ff', '#ffe600'],
+    colors: ['#a56cff', '#ff4fa8', '#37e4ee', '#ffda55'],
     camera: [0, 0, 7],
-    spark: '#a855f7',
+    spark: '#a56cff',
   },
   cta: {
-    colors: ['#39ff14', '#00e5ff', '#ff2d9b', '#ffe600'],
+    colors: ['#58df75', '#37e4ee', '#ff4fa8', '#ffda55'],
     camera: [0, 0, 7],
-    spark: '#39ff14',
+    spark: '#58df75',
   },
 };
 

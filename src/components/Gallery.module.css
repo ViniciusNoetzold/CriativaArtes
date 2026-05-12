@@ -1,151 +1,212 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  justify-content: center;
+  width: min(100%, 820px);
+  margin: -0.85rem auto 1.7rem;
+}
+
+.filterButton {
+  min-height: 2.5rem;
+  padding: 0.62rem 1rem;
+  color: rgba(255, 248, 255, 0.78);
+  font-size: 0.86rem;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+  background: rgba(255, 248, 255, 0.06);
+  border: 1px solid rgba(255, 248, 255, 0.12);
+  border-radius: 999px;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.filterButton:hover,
+.filterButton:focus-visible {
+  color: var(--white);
+  background: rgba(255, 248, 255, 0.1);
+  border-color: rgba(255, 248, 255, 0.22);
+  transform: translateY(-2px);
+}
+
+.filterActive,
+.filterActive:hover,
+.filterActive:focus-visible {
+  color: #1a0820;
+  background: linear-gradient(120deg, var(--yellow), var(--orange), var(--magenta));
+  border-color: transparent;
+}
+
 .grid {
-  max-width: 1120px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+  width: 100%;
+  min-width: 0;
   margin: 0 auto;
-  columns: 3 18rem;
-  column-gap: 1rem;
 }
 
 .card {
-  --tile-a: #ff2d9b;
-  --tile-b: #a855f7;
+  --tile-a: #ff4fa8;
+  --tile-b: #a56cff;
   position: relative;
-  display: block;
-  margin: 0 0 1rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
   overflow: hidden;
-  break-inside: avoid;
-  background: rgba(255, 255, 255, 0.035);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  box-shadow:
-    inset 0 0 32px rgba(255, 255, 255, 0.03),
-    0 18px 44px rgba(0, 0, 0, 0.16);
+  background:
+    linear-gradient(145deg, rgba(255, 248, 255, 0.06), rgba(255, 218, 85, 0.015)),
+    rgba(45, 20, 60, 0.72);
+  border: 1px solid color-mix(in srgb, var(--tile-a), transparent 74%);
+  border-radius: var(--radius-card);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
   transform: translateZ(0);
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease,
-    border-color 0.3s ease;
-}
-
-.card::before {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  content: '';
-  background:
-    linear-gradient(140deg, color-mix(in srgb, var(--tile-a), transparent 76%), transparent 44%),
-    linear-gradient(320deg, color-mix(in srgb, var(--tile-b), transparent 82%), transparent 50%);
-  opacity: 0.72;
-  mix-blend-mode: screen;
-  transition: opacity 0.3s ease;
+    transform 0.24s ease,
+    box-shadow 0.24s ease,
+    border-color 0.24s ease;
 }
 
 .card:hover {
   border-color: color-mix(in srgb, var(--tile-a), transparent 38%);
   box-shadow:
-    0 24px 60px rgba(0, 0, 0, 0.28),
-    0 0 38px color-mix(in srgb, var(--tile-a), transparent 84%);
-  transform: translateY(-4px);
+    0 18px 42px rgba(0, 0, 0, 0.24),
+    0 0 18px color-mix(in srgb, var(--tile-a), transparent 90%);
+  transform: translateY(-3px);
 }
 
-.card:hover::before {
-  opacity: 0.38;
+.media {
+  position: relative;
+  aspect-ratio: 16 / 11;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, color-mix(in srgb, var(--tile-a), transparent 88%), rgba(255, 248, 255, 0.05)),
+    rgba(255, 255, 255, 0.04);
+}
+
+.media::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: '';
+  background:
+    linear-gradient(180deg, transparent 62%, rgba(0, 0, 0, 0.22)),
+    linear-gradient(135deg, color-mix(in srgb, var(--tile-a), transparent 88%), transparent 50%);
+  opacity: 0.65;
 }
 
 .image {
   display: block;
   width: 100%;
-  height: auto;
-  min-height: 12rem;
+  height: 100%;
   object-fit: cover;
-  filter: saturate(1.05) contrast(1.02);
+  object-position: center;
+  filter: saturate(1.04) contrast(1.02);
   transition:
-    transform 0.45s ease,
-    filter 0.45s ease;
+    transform 0.35s ease,
+    filter 0.35s ease;
 }
 
 .card:hover .image {
-  filter: saturate(1.18) contrast(1.05) brightness(1.03);
+  filter: saturate(1.12) contrast(1.05) brightness(1.03);
   transform: scale(1.035);
 }
 
-.overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0.8rem;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.58), transparent 34%),
-    linear-gradient(0deg, rgba(0, 0, 0, 0.74), transparent 50%);
+.caption {
+  display: grid;
+  gap: 0.55rem;
+  min-width: 0;
+  padding: 0.9rem 0.95rem 1rem;
 }
 
 .magenta {
-  --tile-a: #ff2d9b;
-  --tile-b: #a855f7;
+  --tile-a: #ff4fa8;
+  --tile-b: #a56cff;
 }
 
 .cyan {
-  --tile-a: #00e5ff;
+  --tile-a: #37e4ee;
   --tile-b: #0066ff;
 }
 
 .yellow {
-  --tile-a: #ffe600;
-  --tile-b: #ff6a00;
+  --tile-a: #ffda55;
+  --tile-b: #ff8b3d;
 }
 
 .purple {
-  --tile-a: #a855f7;
-  --tile-b: #ff2d9b;
+  --tile-a: #a56cff;
+  --tile-b: #ff4fa8;
 }
 
 .orange {
-  --tile-a: #ff6a00;
-  --tile-b: #ffe600;
+  --tile-a: #ff8b3d;
+  --tile-b: #ffda55;
 }
 
 .green {
-  --tile-a: #39ff14;
-  --tile-b: #00e5ff;
+  --tile-a: #58df75;
+  --tile-b: #37e4ee;
 }
 
 .tag {
-  align-self: flex-end;
-  padding: 0.32rem 0.78rem;
-  color: rgba(240, 238, 255, 0.94);
+  justify-self: start;
+  padding: 0.3rem 0.62rem;
+  color: color-mix(in srgb, var(--tile-a), white 34%);
   font-size: 0.7rem;
   font-weight: 900;
-  letter-spacing: 1px;
+  letter-spacing: 0;
+  line-height: 1;
   text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.54);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: color-mix(in srgb, var(--tile-a), transparent 88%);
+  border: 1px solid color-mix(in srgb, var(--tile-a), transparent 64%);
   border-radius: 999px;
-  backdrop-filter: blur(6px);
 }
 
 .label {
-  max-width: 92%;
+  min-height: 2.55rem;
   margin: 0;
   color: var(--white);
-  font-size: 1rem;
+  font-size: 0.96rem;
   font-weight: 900;
-  line-height: 1.3;
-  letter-spacing: 0.7px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.82);
+  line-height: 1.35;
+}
+
+@media (max-width: 1120px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media (max-width: 760px) {
   .grid {
-    columns: 2 14rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 520px) {
+@media (max-width: 560px) {
+  .filters {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 28rem);
+    margin-top: -0.75rem;
+  }
+
+  .filterButton {
+    width: 100%;
+    min-height: 2.75rem;
+  }
+
   .grid {
-    columns: 1;
+    grid-template-columns: 1fr;
+    width: min(100%, 28rem);
+  }
+
+  .label {
+    min-height: 0;
   }
 }

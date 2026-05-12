@@ -28,7 +28,7 @@ export default function AboutBusiness() {
 
           <div className={styles.panel}>
             <Reveal className={styles.panelHeader}>
-              <span className={styles.panelKicker}>Criativa Artes</span>
+              <span className={styles.panelKicker}>Guria Arteira</span>
               <h3>{businessStory.title}</h3>
             </Reveal>
             <div className={styles.valueGrid}>

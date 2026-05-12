@@ -1,7 +1,14 @@
-import { products } from '../data/siteContent.js';
+import { productCategories } from '../data/siteContent.js';
 import Reveal from './Reveal.jsx';
 import section from './Section.module.css';
 import styles from './Products.module.css';
+
+const categoryId = (title) =>
+  `categoria-${title
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replaceAll(' ', '-')}`;
 
 export default function Products() {
   return (
@@ -9,46 +16,63 @@ export default function Products() {
       <div className={section.inner}>
         <div className={styles.headerGrid}>
           <Reveal className={styles.headerText}>
-            <div className={section.label}>O que personalizamos</div>
+            <div className={section.label}>Catálogo por categoria</div>
             <h2 className={section.title}>
-              ESCOLHA O PRODUTO, <span className="rainbowText">A GENTE CRIA A ARTE</span>
+              Guia de Produtos <span className="rainbowText">Personalizados</span>
             </h2>
             <p className={section.sub}>
-              Uma vitrine prática para o cliente entender o que pode pedir: roupas, uniformes, canecas, taças, copos,
-              canetas, brindes e presentes sob medida.
+              Escolha o tipo de produto que combina com sua ideia. A Guria Arteira transforma presentes, lembranças e
+              materiais personalizados em peças únicas.
             </p>
           </Reveal>
 
           <Reveal className={styles.orderPanel}>
-            <span className={styles.panelLabel}>Como pedir</span>
-            <strong>Sem quantidade mínima</strong>
-            <p>Envie referências, nome, logo, cores ou tema. A Criativa Artes desenvolve a ideia e alinha a arte antes de produzir.</p>
+            <span className={styles.panelLabel}>Orçamento sob medida</span>
+            <strong>Da unidade ao lote</strong>
+            <p>Conte sua ideia, envie referências e confirme material, prazo e quantidade direto pelo WhatsApp.</p>
             <a className={styles.panelButton} href="#personalizar">
-              Personalizar meu produto
+              Montar pré-orçamento
             </a>
           </Reveal>
         </div>
 
-        <div className={styles.grid}>
-          {products.map((product) => (
-            <Reveal as="article" className={`${styles.card} ${styles[product.tone]}`} key={product.name}>
-              <div className={styles.media}>
-                <img src={product.image} alt={product.name} loading="lazy" />
-                <span className={styles.badge}>Sob medida</span>
-              </div>
-              <div className={styles.content}>
-                <h3 className={styles.name}>{product.name}</h3>
-                <p className={styles.description}>{product.description}</p>
-                <p className={styles.detail}>{product.detail}</p>
-                <div className={styles.examples} aria-label={`Exemplos de ${product.name}`}>
-                  {product.examples.map((example) => (
-                    <span key={example}>{example}</span>
-                  ))}
+        <div className={styles.guideGrid}>
+          {productCategories.map((category) => {
+            const id = categoryId(category.title);
+
+            return (
+              <Reveal as="article" className={`${styles.card} ${styles[category.tone]}`} key={category.title}>
+                <a className={styles.mediaLink} href="#personalizar" aria-label={`Pedir orçamento para ${category.title}`}>
+                  <span className={styles.media}>
+                    <img src={category.image} alt={category.title} loading="lazy" />
+                  </span>
+                </a>
+
+                <div className={styles.content}>
+                  <span className={styles.categoryLabel}>Categoria</span>
+                  <h3 id={id}>{category.title}</h3>
+                  <p>{category.description}</p>
+
+                  <div className={styles.examples} aria-label={`Exemplos de ${category.title}`}>
+                    {category.examples.map((example) => (
+                      <span key={example}>{example}</span>
+                    ))}
+                  </div>
+
+                  <a className={styles.cardAction} href="#personalizar" aria-labelledby={id}>
+                    Quero personalizar
+                  </a>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            );
+          })}
         </div>
+
+        <Reveal className={styles.fallbackCta}>
+          <strong>Não encontrou exatamente o que precisa?</strong>
+          <span>Use a opção “Outros” no orçamento e descreva o produto desejado.</span>
+          <a href="#personalizar">Descrever meu pedido</a>
+        </Reveal>
       </div>
     </section>
   );

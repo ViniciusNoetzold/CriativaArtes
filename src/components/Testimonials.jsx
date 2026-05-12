@@ -8,13 +8,12 @@ export default function Testimonials() {
     <section id="relatos" className={`${section.section} ${styles.testimonials}`} data-scene-section="testimonials">
       <div className={section.inner}>
         <Reveal className={section.header}>
-          <div className={section.label}>Relatos e resultados</div>
+          <div className={section.label}>Confiança no processo</div>
           <h2 className={section.title}>
-            CLIENTES QUE <span className="rainbowText">VOLTAM E INDICAM</span>
+            Atendimento que <span className="rainbowText">organiza sua ideia</span>
           </h2>
           <p className={section.sub}>
-            A Criativa Artes já tem trabalhos com relatos de clientes, e essa área fica pronta para receber as fotos e
-            depoimentos reais que serão enviados.
+            Do presente único ao pedido para empresas, o foco é deixar o processo claro antes da produção.
           </p>
         </Reveal>
 

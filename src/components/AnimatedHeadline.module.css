@@ -1,9 +1,10 @@
 .headline {
-  margin: 0 0 1.2rem;
+  margin: 0 0 1rem;
   font-family: var(--font-display);
-  font-size: 6.4rem;
+  font-size: 5.25rem;
   line-height: 0.95;
-  letter-spacing: 2px;
+  letter-spacing: 0;
+  overflow-wrap: break-word;
 }
 
 .line {
@@ -12,75 +13,36 @@
 
 .word {
   display: inline-block;
-  margin-right: 0.22em;
+  margin-right: 0.18em;
   opacity: 1;
   transform: translateY(0);
-  animation: wordReveal 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .word:last-child {
   margin-right: 0;
 }
 
-.delay0 {
-  animation-delay: 0.4s;
-}
-
-.delay1 {
-  animation-delay: 0.52s;
-}
-
-.delay2 {
-  animation-delay: 0.64s;
-}
-
-.delay3 {
-  animation-delay: 0.76s;
-}
-
-.delay4 {
-  animation-delay: 0.88s;
-}
-
-@keyframes wordReveal {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @media (max-width: 1100px) {
   .headline {
-    font-size: 5.2rem;
+    font-size: 4.45rem;
   }
 }
 
 @media (max-width: 760px) {
   .headline {
-    font-size: 3.25rem;
-  }
-
-  .line:nth-child(3) .word {
-    display: block;
-    margin-right: 0;
+    font-size: 2.9rem;
+    line-height: 1;
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 520px) {
   .headline {
-    font-size: 2.7rem;
-    letter-spacing: 1px;
+    font-size: 2.28rem;
   }
-
-  .word {
-    margin-right: 0.16em;
-  }
-
 }
 
-@media (max-width: 420px) {
+@media (max-width: 380px) {
   .headline {
-    font-size: 2.32rem;
-    letter-spacing: 0;
+    font-size: 1.98rem;
   }
 }

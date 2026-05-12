@@ -3,6 +3,7 @@
   gap: 0;
   align-items: flex-start;
   justify-content: center;
+  min-width: 0;
 }
 
 .step {
@@ -53,15 +54,15 @@
 }
 
 .magenta {
-  --step-color: #ff2d9b;
+  --step-color: #ff4fa8;
 }
 
 .cyan {
-  --step-color: #00e5ff;
+  --step-color: #37e4ee;
 }
 
 .green {
-  --step-color: #39ff14;
+  --step-color: #58df75;
 }
 
 .title {
@@ -69,13 +70,13 @@
   font-family: var(--font-display);
   font-size: 1.6rem;
   line-height: 1;
-  letter-spacing: 1px;
+  letter-spacing: 0;
 }
 
 .description {
   max-width: 17rem;
   margin: 0 auto;
-  color: rgba(240, 238, 255, 0.64);
+  color: rgba(255, 248, 255, 0.66);
   font-size: 0.92rem;
   line-height: 1.6;
 }
@@ -121,5 +122,21 @@
 
   .connector {
     display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .stepNum {
+    width: 68px;
+    height: 68px;
+    font-size: 1.85rem;
+  }
+
+  .title {
+    font-size: 1.42rem;
+  }
+
+  .description {
+    font-size: 0.9rem;
   }
 }
