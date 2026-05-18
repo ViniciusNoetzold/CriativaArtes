@@ -1,424 +1,458 @@
 .background {
+  --wave-opacity: 0.86;
+  --wave-speed: 34s;
+  --wave-blur: 12px;
+  --wave-saturation: 1.34;
+  --base-ink: #09020f;
+  --base-purple: #180620;
+  --base-wine: #2a0b2d;
+  --base-blue: #071426;
+  --pearl-pink: rgba(255, 113, 185, 0.42);
+  --pearl-lilac: rgba(185, 132, 255, 0.38);
+  --pearl-blue: rgba(66, 137, 255, 0.34);
+  --pearl-cyan: rgba(80, 231, 237, 0.42);
+  --pearl-green: rgba(117, 217, 140, 0.2);
+  --pearl-warm: rgba(255, 200, 95, 0.18);
   position: fixed;
   inset: 0;
   z-index: 0;
-  overflow: hidden;
-  pointer-events: none;
   width: 100%;
   max-width: 100%;
-  contain: layout paint;
+  overflow: hidden;
+  pointer-events: none;
+  contain: layout paint size;
   background:
-    radial-gradient(circle at 12% 14%, rgba(248, 106, 169, 0.12), transparent 28rem),
-    radial-gradient(circle at 88% 12%, rgba(99, 217, 227, 0.1), transparent 30rem),
-    radial-gradient(circle at 70% 82%, rgba(255, 215, 106, 0.07), transparent 28rem),
-    linear-gradient(120deg, rgba(246, 154, 87, 0.05), transparent 34%),
-    linear-gradient(240deg, rgba(167, 124, 236, 0.08), transparent 32%),
-    repeating-linear-gradient(100deg, transparent 0 7rem, rgba(255, 248, 255, 0.018) 7rem 7.12rem, transparent 7.12rem 13rem),
-    #17071f;
+    linear-gradient(150deg, rgba(52, 8, 59, 0.58), transparent 36%),
+    linear-gradient(235deg, rgba(7, 28, 53, 0.84), transparent 46%),
+    linear-gradient(180deg, var(--base-ink) 0%, var(--base-purple) 34%, var(--base-wine) 58%, var(--base-blue) 100%);
 }
 
+.background::before,
+.background::after,
 .background span {
   position: absolute;
   display: block;
+  pointer-events: none;
+}
+
+.background::before {
+  inset: -18%;
+  content: '';
+  opacity: calc(var(--wave-opacity) * 0.82);
+  background:
+    conic-gradient(
+      from 218deg at 52% 42%,
+      rgba(255, 113, 185, 0) 0deg,
+      rgba(255, 113, 185, 0.26) 44deg,
+      rgba(80, 231, 237, 0.28) 92deg,
+      rgba(185, 132, 255, 0.22) 142deg,
+      rgba(255, 200, 95, 0.1) 194deg,
+      rgba(66, 137, 255, 0.24) 256deg,
+      rgba(255, 113, 185, 0) 360deg
+    );
+  filter: blur(42px) saturate(1.22);
+  mix-blend-mode: screen;
+  transform: translate3d(0, 0, 0);
+  animation: iridescentTurn calc(var(--wave-speed) * 1.55) ease-in-out infinite alternate;
+}
+
+.background::after {
+  inset: 0;
+  z-index: 5;
+  content: '';
+  background:
+    linear-gradient(180deg, rgba(6, 1, 10, 0.3) 0%, rgba(12, 3, 18, 0.16) 28%, rgba(7, 2, 14, 0.42) 100%),
+    linear-gradient(90deg, rgba(5, 1, 10, 0.48) 0%, transparent 18%, transparent 82%, rgba(5, 1, 10, 0.52) 100%);
+}
+
+.background span {
   will-change: transform, opacity;
 }
 
-.ribbonOne,
-.ribbonTwo,
-.ribbonThree {
-  width: min(82rem, 82%);
-  height: 18rem;
-  border-radius: 48% 52% 42% 58%;
-  filter: blur(24px);
-  mix-blend-mode: screen;
-  opacity: 0.18;
+.depthWash {
+  inset: -6%;
+  z-index: 0;
+  opacity: 0.92;
+  background:
+    linear-gradient(118deg, rgba(53, 10, 68, 0.72), transparent 42%),
+    linear-gradient(256deg, rgba(7, 41, 70, 0.58), transparent 46%),
+    linear-gradient(180deg, rgba(7, 2, 12, 0.34), rgba(7, 2, 12, 0.72));
 }
 
-.ribbonOne {
-  top: 4rem;
-  left: -22vw;
-  background: linear-gradient(90deg, transparent, rgba(248, 106, 169, 0.28), rgba(246, 154, 87, 0.2), rgba(255, 215, 106, 0.12), transparent);
-  animation: driftRibbonOne 24s ease-in-out infinite alternate;
-}
-
-.ribbonTwo {
-  top: 35vh;
-  right: -28vw;
-  background: linear-gradient(90deg, transparent, rgba(99, 217, 227, 0.24), rgba(167, 124, 236, 0.2), rgba(248, 106, 169, 0.11), transparent);
-  animation: driftRibbonTwo 28s ease-in-out infinite alternate;
-}
-
-.ribbonThree {
-  bottom: -4rem;
-  left: 8vw;
-  background: linear-gradient(90deg, transparent, rgba(255, 215, 106, 0.2), rgba(117, 217, 140, 0.14), rgba(99, 217, 227, 0.1), transparent);
-  animation: driftRibbonThree 22s ease-in-out infinite alternate;
-}
-
-.beamOne,
-.beamTwo,
-.beamThree {
-  width: 22vw;
-  min-width: 12rem;
-  height: 130vh;
-  top: -15vh;
-  border-radius: 999px;
-  filter: blur(18px);
-  mix-blend-mode: screen;
-  opacity: 0.1;
-}
-
-.beamOne {
-  left: 9vw;
-  background: linear-gradient(180deg, transparent, rgba(99, 217, 227, 0.26), transparent);
-  animation: sweepBeamOne 18s ease-in-out infinite alternate;
-}
-
-.beamTwo {
-  left: 45vw;
-  background: linear-gradient(180deg, transparent, rgba(248, 106, 169, 0.26), rgba(167, 124, 236, 0.18), transparent);
-  animation: sweepBeamTwo 22s ease-in-out infinite alternate;
-}
-
-.beamThree {
-  right: 4vw;
-  background: linear-gradient(180deg, transparent, rgba(255, 215, 106, 0.18), rgba(117, 217, 140, 0.14), transparent);
-  animation: sweepBeamThree 20s ease-in-out infinite alternate;
-}
-
-.ringOne,
-.ringTwo {
-  width: 18rem;
-  height: 18rem;
-  border: 0.35rem solid rgba(55, 228, 238, 0.22);
-  border-radius: 44% 56% 52% 48%;
-  box-shadow:
-    0 0 46px rgba(55, 228, 238, 0.13),
-    inset 0 0 36px rgba(55, 228, 238, 0.07);
-}
-
-.ringOne {
-  top: 18vh;
-  left: 5vw;
-  animation: spinAndFloat 26s linear infinite;
-}
-
-.ringTwo {
-  right: 7vw;
-  bottom: 12vh;
-  border-color: rgba(255, 79, 168, 0.24);
-  box-shadow:
-    0 0 46px rgba(255, 79, 168, 0.13),
-    inset 0 0 36px rgba(255, 79, 168, 0.07);
-  animation: spinAndFloat 31s linear infinite reverse;
-}
-
-.meshOne,
-.meshTwo {
-  width: 28rem;
-  height: 28rem;
-  opacity: 0.14;
-  background-image:
-    linear-gradient(rgba(55, 228, 238, 0.26) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(55, 228, 238, 0.26) 1px, transparent 1px);
-  background-size: 2.1rem 2.1rem;
-  mask-image: radial-gradient(circle, #000 0 54%, transparent 72%);
-}
-
-.meshOne {
-  left: -8rem;
-  bottom: 10vh;
-  transform: rotate(18deg);
-  animation: meshGlideOne 20s ease-in-out infinite alternate;
-}
-
-.meshTwo {
-  top: 14vh;
-  right: -10rem;
-  background-image:
-    linear-gradient(rgba(255, 79, 168, 0.26) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 139, 61, 0.2) 1px, transparent 1px);
-  transform: rotate(-14deg);
-  animation: meshGlideTwo 24s ease-in-out infinite alternate;
-}
-
-.pulseGrid {
-  inset: -8rem;
-  opacity: 0.08;
-  background-image:
-    linear-gradient(rgba(255, 79, 168, 0.2) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(55, 228, 238, 0.2) 1px, transparent 1px);
-  background-size: 6rem 6rem;
-  transform: rotate(-8deg);
-  animation: pulseGrid 16s ease-in-out infinite alternate;
-}
-
-.sparkField {
-  inset: 0;
-  opacity: 0.18;
-  background-image:
-    radial-gradient(circle, rgba(255, 248, 255, 0.78) 0 1px, transparent 1.6px),
-    radial-gradient(circle, rgba(55, 228, 238, 0.44) 0 1px, transparent 1.8px),
-    radial-gradient(circle, rgba(255, 79, 168, 0.34) 0 1px, transparent 1.6px);
-  background-position:
-    0 0,
-    3rem 4rem,
-    8rem 2rem;
+.auroraField {
+  inset: -24% -18%;
+  z-index: 1;
+  opacity: calc(var(--wave-opacity) * 0.74);
+  background:
+    linear-gradient(108deg, transparent 0 14%, rgba(255, 113, 185, 0.2) 23%, rgba(80, 231, 237, 0.26) 35%, transparent 49%),
+    linear-gradient(64deg, transparent 6%, rgba(185, 132, 255, 0.18) 24%, rgba(66, 137, 255, 0.22) 41%, transparent 61%),
+    repeating-linear-gradient(126deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 7.5rem);
   background-size:
-    9rem 9rem,
-    13rem 13rem,
-    17rem 17rem;
-  animation: starDrift 38s linear infinite;
+    170% 140%,
+    160% 130%,
+    100% 100%;
+  filter: blur(24px) saturate(var(--wave-saturation));
+  mix-blend-mode: screen;
+  transform: rotate(-7deg) scale(1.08);
+  animation: auroraGlide calc(var(--wave-speed) * 1.2) ease-in-out infinite alternate;
+  -webkit-mask-image: linear-gradient(180deg, #000 0 86%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 0 86%, transparent 100%);
 }
 
-.background[data-active-scene='products'] .ribbonOne,
-.background[data-active-scene='products'] .ringTwo {
-  opacity: 0.26;
+.waveOne,
+.waveTwo,
+.waveThree {
+  z-index: 2;
+  width: 142vw;
+  height: 44vh;
+  min-height: 19rem;
+  border-radius: 52% 48% 46% 54%;
+  filter: blur(var(--wave-blur)) saturate(var(--wave-saturation));
+  mix-blend-mode: screen;
+  opacity: var(--wave-opacity);
+  overflow: hidden;
+  transform-origin: 50% 50%;
 }
 
-.background[data-active-scene='about'] .beamOne,
-.background[data-active-scene='about'] .ringOne {
-  opacity: 0.18;
+.waveOne::before,
+.waveTwo::before,
+.waveThree::before {
+  position: absolute;
+  inset: 12% 8%;
+  display: block;
+  content: '';
+  background:
+    linear-gradient(104deg, transparent 8%, rgba(255, 248, 255, 0.26) 21%, transparent 31%),
+    linear-gradient(96deg, transparent 40%, rgba(80, 231, 237, 0.18) 49%, rgba(255, 113, 185, 0.14) 58%, transparent 70%);
+  border-radius: inherit;
+  filter: blur(4px);
+  mix-blend-mode: screen;
+  opacity: 0.68;
+  transform: translate3d(-6%, 0, 0);
+  animation: waveHighlight calc(var(--wave-speed) * 0.78) ease-in-out infinite alternate;
 }
 
-.background[data-active-scene='about'] .meshOne {
-  opacity: 0.18;
+.waveOne {
+  top: -2vh;
+  left: -22vw;
+  height: 50vh;
+  background:
+    linear-gradient(100deg, transparent 0%, rgba(255, 113, 185, 0.52) 16%, rgba(185, 132, 255, 0.46) 31%, rgba(80, 231, 237, 0.46) 48%, rgba(66, 137, 255, 0.24) 64%, transparent 84%),
+    linear-gradient(182deg, rgba(255, 255, 255, 0.11), transparent 48%);
+  transform: rotate(-10deg) translate3d(-2vw, 0, 0);
+  animation: waveDriftOne var(--wave-speed) ease-in-out infinite alternate;
 }
 
-.background[data-active-scene='products'] .pulseGrid {
-  opacity: 0.1;
-  background-size: 5.2rem 5.2rem;
+.waveTwo {
+  top: 30vh;
+  right: -30vw;
+  height: 48vh;
+  background:
+    linear-gradient(92deg, transparent 0%, rgba(80, 231, 237, 0.36) 17%, rgba(66, 137, 255, 0.38) 32%, rgba(255, 113, 185, 0.3) 53%, rgba(255, 200, 95, 0.12) 72%, transparent 88%),
+    linear-gradient(15deg, transparent, rgba(255, 255, 255, 0.09) 42%, transparent 66%);
+  opacity: calc(var(--wave-opacity) * 0.78);
+  transform: rotate(13deg) translate3d(4vw, 0, 0);
+  animation: waveDriftTwo calc(var(--wave-speed) * 1.15) ease-in-out infinite alternate;
 }
 
-.background[data-active-scene='customizer'] .ribbonThree,
-.background[data-active-scene='customizer'] .beamThree {
+.waveThree {
+  bottom: -10vh;
+  left: -14vw;
+  height: 40vh;
+  background:
+    linear-gradient(96deg, transparent 0%, rgba(255, 200, 95, 0.16) 13%, rgba(117, 217, 140, 0.24) 25%, rgba(80, 231, 237, 0.26) 42%, rgba(185, 132, 255, 0.28) 60%, transparent 82%),
+    linear-gradient(178deg, rgba(255, 255, 255, 0.08), transparent 50%);
+  opacity: calc(var(--wave-opacity) * 0.64);
+  transform: rotate(-6deg) translate3d(0, 0, 0);
+  animation: waveDriftThree calc(var(--wave-speed) * 1.32) ease-in-out infinite alternate;
+}
+
+.liquidFold {
+  inset: -14% -24%;
+  z-index: 3;
+  opacity: calc(var(--wave-opacity) * 0.54);
+  background:
+    linear-gradient(108deg, transparent 4%, rgba(255, 248, 255, 0.13) 15%, transparent 25%),
+    linear-gradient(118deg, transparent 28%, rgba(255, 113, 185, 0.18) 36%, rgba(80, 231, 237, 0.24) 45%, rgba(185, 132, 255, 0.16) 54%, transparent 66%),
+    linear-gradient(132deg, transparent 54%, rgba(255, 248, 255, 0.12) 60%, transparent 70%);
+  background-size:
+    150% 100%,
+    160% 120%,
+    140% 100%;
+  filter: blur(9px) saturate(1.24);
+  mix-blend-mode: screen;
+  transform: rotate(-5deg) translate3d(0, 0, 0);
+  animation: foldFlow calc(var(--wave-speed) * 0.86) ease-in-out infinite alternate;
+  -webkit-mask-image: linear-gradient(170deg, transparent 0 12%, #000 28% 76%, transparent 92%);
+  mask-image: linear-gradient(170deg, transparent 0 12%, #000 28% 76%, transparent 92%);
+}
+
+.pearlSheen {
+  inset: -12% -20%;
+  z-index: 4;
+  opacity: calc(var(--wave-opacity) * 0.42);
+  background:
+    linear-gradient(112deg, transparent 16%, rgba(255, 248, 255, 0.16) 28%, transparent 41%),
+    linear-gradient(76deg, transparent 44%, rgba(80, 231, 237, 0.12) 52%, rgba(255, 113, 185, 0.1) 58%, transparent 70%);
+  background-size:
+    140% 130%,
+    180% 150%;
+  filter: blur(10px);
+  mix-blend-mode: soft-light;
+  animation: sheenFlow calc(var(--wave-speed) * 0.9) ease-in-out infinite alternate;
+}
+
+.warmAccents {
+  inset: -18% -16%;
+  z-index: 4;
   opacity: 0.22;
+  background:
+    linear-gradient(124deg, transparent 0 42%, rgba(255, 200, 95, 0.12) 48%, rgba(246, 154, 87, 0.1) 54%, transparent 64%),
+    linear-gradient(58deg, transparent 0 56%, rgba(117, 217, 140, 0.11) 63%, transparent 74%);
+  filter: blur(18px) saturate(1.1);
+  mix-blend-mode: screen;
+  transform: rotate(-5deg);
+  animation: warmGlide calc(var(--wave-speed) * 1.45) ease-in-out infinite alternate;
 }
 
-.background[data-active-scene='customizer'] .ringTwo {
-  border-color: rgba(88, 223, 117, 0.34);
-  box-shadow:
-    0 0 54px rgba(88, 223, 117, 0.18),
-    inset 0 0 38px rgba(88, 223, 117, 0.08);
+.softGrain {
+  inset: 0;
+  z-index: 6;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.72'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
 }
 
-.background[data-active-scene='customizer'] .pulseGrid {
-  opacity: 0.1;
+.background[data-active-scene='hero'] {
+  --wave-opacity: 0.96;
+  --wave-speed: 32s;
 }
 
-.background[data-active-scene='process'] .beamOne,
-.background[data-active-scene='process'] .beamTwo {
-  opacity: 0.16;
+.background[data-active-scene='products'] {
+  --wave-opacity: 0.72;
 }
 
-.background[data-active-scene='process'] .ringOne {
-  border-color: rgba(165, 108, 255, 0.36);
-  box-shadow:
-    0 0 52px rgba(165, 108, 255, 0.18),
-    inset 0 0 36px rgba(165, 108, 255, 0.08);
+.background[data-active-scene='products'] .waveOne,
+.background[data-active-scene='gallery'] .waveTwo {
+  opacity: calc(var(--wave-opacity) * 0.98);
 }
 
-.background[data-active-scene='gallery'] .ribbonTwo,
-.background[data-active-scene='gallery'] .meshTwo {
-  opacity: 0.22;
+.background[data-active-scene='customizer'] {
+  --wave-opacity: 0.68;
 }
 
-.background[data-active-scene='gallery'] .sparkField {
-  opacity: 0.24;
+.background[data-active-scene='customizer'] .warmAccents {
+  opacity: 0.28;
 }
 
-.background[data-active-scene='testimonials'] .ribbonTwo,
-.background[data-active-scene='testimonials'] .ringOne {
-  opacity: 0.22;
+.background[data-active-scene='process'],
+.background[data-active-scene='testimonials'] {
+  --wave-opacity: 0.64;
 }
 
-.background[data-active-scene='testimonials'] .beamTwo {
-  opacity: 0.16;
+.background[data-active-scene='gallery'] {
+  --wave-opacity: 0.76;
 }
 
-.background[data-active-scene='cta'] .ribbonThree,
-.background[data-active-scene='cta'] .beamThree {
-  opacity: 0.2;
+.background[data-active-scene='cta'] {
+  --wave-opacity: 0.8;
 }
 
-.background[data-active-scene='cta'] .ringTwo {
-  border-color: rgba(88, 223, 117, 0.3);
-  box-shadow:
-    0 0 52px rgba(88, 223, 117, 0.16),
-    inset 0 0 36px rgba(88, 223, 117, 0.08);
-}
-
-@keyframes driftRibbonOne {
+@keyframes iridescentTurn {
   from {
-    transform: translate3d(-4vw, -2rem, 0) rotate(-12deg) scale(0.95);
+    transform: translate3d(-3%, -2%, 0) rotate(-6deg) scale(1.02);
   }
 
   to {
-    transform: translate3d(12vw, 3rem, 0) rotate(8deg) scale(1.08);
+    transform: translate3d(4%, 3%, 0) rotate(8deg) scale(1.08);
   }
 }
 
-@keyframes driftRibbonTwo {
+@keyframes auroraGlide {
   from {
-    transform: translate3d(6vw, 2rem, 0) rotate(14deg) scale(1);
-  }
-
-  to {
-    transform: translate3d(-12vw, -3rem, 0) rotate(-8deg) scale(1.06);
-  }
-}
-
-@keyframes driftRibbonThree {
-  from {
-    transform: translate3d(-6vw, 2rem, 0) rotate(4deg) scale(0.96);
-  }
-
-  to {
-    transform: translate3d(9vw, -4rem, 0) rotate(-10deg) scale(1.08);
-  }
-}
-
-@keyframes spinAndFloat {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-
-  50% {
-    transform: translate3d(1.5rem, -2rem, 0) rotate(180deg);
-  }
-
-  100% {
-    transform: translate3d(0, 0, 0) rotate(360deg);
-  }
-}
-
-@keyframes sweepBeamOne {
-  from {
-    transform: translate3d(-8vw, 3vh, 0) rotate(18deg) scaleX(0.86);
-  }
-
-  to {
-    transform: translate3d(10vw, -5vh, 0) rotate(24deg) scaleX(1.08);
-  }
-}
-
-@keyframes sweepBeamTwo {
-  from {
-    transform: translate3d(8vw, -4vh, 0) rotate(-16deg) scaleX(0.9);
-  }
-
-  to {
-    transform: translate3d(-12vw, 5vh, 0) rotate(-24deg) scaleX(1.06);
-  }
-}
-
-@keyframes sweepBeamThree {
-  from {
-    transform: translate3d(5vw, 4vh, 0) rotate(12deg) scaleX(0.88);
-  }
-
-  to {
-    transform: translate3d(-9vw, -4vh, 0) rotate(20deg) scaleX(1.05);
-  }
-}
-
-@keyframes meshGlideOne {
-  from {
-    transform: translate3d(-1rem, 1rem, 0) rotate(18deg);
-  }
-
-  to {
-    transform: translate3d(4rem, -2rem, 0) rotate(28deg);
-  }
-}
-
-@keyframes meshGlideTwo {
-  from {
-    transform: translate3d(1rem, -1rem, 0) rotate(-14deg);
-  }
-
-  to {
-    transform: translate3d(-4rem, 2rem, 0) rotate(-24deg);
-  }
-}
-
-@keyframes pulseGrid {
-  from {
-    transform: translate3d(-3rem, 1rem, 0) rotate(-8deg) scale(1);
-    background-position: 0 0;
-  }
-
-  to {
-    transform: translate3d(3rem, -2rem, 0) rotate(-12deg) scale(1.05);
-    background-position: 8rem -6rem;
-  }
-}
-
-@keyframes starDrift {
-  to {
+    transform: translate3d(-4%, 1%, 0) rotate(-7deg) scale(1.08);
     background-position:
-      22rem 14rem,
-      -14rem 20rem,
-      18rem -10rem;
+      0% 38%,
+      80% 20%,
+      0 0;
+  }
+
+  to {
+    transform: translate3d(5%, -2%, 0) rotate(-2deg) scale(1.13);
+    background-position:
+      100% 52%,
+      0% 70%,
+      8rem -6rem;
+  }
+}
+
+@keyframes waveDriftOne {
+  from {
+    transform: rotate(-10deg) translate3d(-4vw, -1.2rem, 0) scale(0.98);
+  }
+
+  to {
+    transform: rotate(-3deg) translate3d(10vw, 2.4rem, 0) scale(1.05);
+  }
+}
+
+@keyframes waveDriftTwo {
+  from {
+    transform: rotate(13deg) translate3d(7vw, 2rem, 0) scale(1);
+  }
+
+  to {
+    transform: rotate(7deg) translate3d(-11vw, -2.2rem, 0) scale(1.08);
+  }
+}
+
+@keyframes waveDriftThree {
+  from {
+    transform: rotate(-6deg) translate3d(-5vw, 1rem, 0) scale(0.98);
+  }
+
+  to {
+    transform: rotate(-13deg) translate3d(8vw, -2.8rem, 0) scale(1.05);
+  }
+}
+
+@keyframes waveHighlight {
+  from {
+    transform: translate3d(-8%, -1%, 0) scaleX(0.96);
+  }
+
+  to {
+    transform: translate3d(8%, 2%, 0) scaleX(1.05);
+  }
+}
+
+@keyframes sheenFlow {
+  from {
+    transform: translate3d(-5%, 0, 0) rotate(-2deg);
+    background-position:
+      0% 42%,
+      100% 24%;
+  }
+
+  to {
+    transform: translate3d(5%, -2%, 0) rotate(3deg);
+    background-position:
+      100% 52%,
+      0% 74%;
+  }
+}
+
+@keyframes foldFlow {
+  from {
+    transform: translate3d(-4%, 1%, 0) rotate(-5deg) scale(1.02);
+    background-position:
+      0% 38%,
+      100% 48%,
+      20% 62%;
+  }
+
+  to {
+    transform: translate3d(4%, -2%, 0) rotate(2deg) scale(1.07);
+    background-position:
+      100% 52%,
+      0% 42%,
+      90% 48%;
+  }
+}
+
+@keyframes warmGlide {
+  from {
+    transform: translate3d(-3%, 2%, 0) rotate(-5deg);
+  }
+
+  to {
+    transform: translate3d(4%, -1%, 0) rotate(1deg);
   }
 }
 
 @media (max-width: 768px) {
   .background {
+    --wave-opacity: 0.68;
+    --wave-speed: 42s;
+    --wave-blur: 16px;
     background:
-      radial-gradient(circle at 12% 12%, rgba(248, 106, 169, 0.12), transparent 20rem),
-      radial-gradient(circle at 90% 20%, rgba(99, 217, 227, 0.1), transparent 19rem),
-      linear-gradient(180deg, #17071f 0%, #201032 100%);
+      linear-gradient(145deg, rgba(49, 8, 58, 0.74), transparent 46%),
+      linear-gradient(225deg, rgba(6, 30, 54, 0.78), transparent 56%),
+      linear-gradient(180deg, #09020f 0%, #190724 52%, #071426 100%);
   }
 
-  .ribbonOne,
-  .ribbonTwo,
-  .ribbonThree {
-    width: 100%;
-    height: 12rem;
+  .background::before {
+    inset: -26%;
+    opacity: 0.4;
+    filter: blur(48px) saturate(1.1);
+  }
+
+  .background::after {
+    background:
+      linear-gradient(180deg, rgba(6, 1, 10, 0.44) 0%, rgba(11, 3, 18, 0.3) 46%, rgba(6, 1, 10, 0.58) 100%),
+      linear-gradient(90deg, rgba(5, 1, 10, 0.5) 0%, transparent 14%, transparent 86%, rgba(5, 1, 10, 0.5) 100%);
+  }
+
+  .auroraField {
+    inset: -22% -42%;
+    opacity: 0.35;
+    filter: blur(28px) saturate(1.08);
+  }
+
+  .waveOne,
+  .waveTwo,
+  .waveThree {
+    width: 178vw;
+    height: 28vh;
+    min-height: 13.5rem;
+  }
+
+  .waveOne {
+    top: 6vh;
+    left: -50vw;
+  }
+
+  .waveTwo {
+    top: 42vh;
+    right: -58vw;
+    opacity: 0.42;
+  }
+
+  .waveThree {
+    bottom: -8vh;
+    left: -42vw;
+    opacity: 0.34;
+  }
+
+  .pearlSheen {
     opacity: 0.22;
+    filter: blur(14px);
   }
 
-  .ribbonOne {
-    left: -38%;
+  .liquidFold {
+    inset: -10% -46%;
+    opacity: 0.34;
+    filter: blur(12px) saturate(1.12);
   }
 
-  .ribbonTwo {
-    right: -38%;
+  .warmAccents {
+    opacity: 0.14;
   }
 
-  .ribbonThree {
-    left: 0;
-    bottom: -5rem;
+  .softGrain {
+    opacity: 0.035;
   }
+}
 
-  .beamOne,
-  .beamTwo,
-  .beamThree {
-    width: 36%;
-    min-width: 0;
-    opacity: 0.1;
-  }
-
-  .ringOne,
-  .ringTwo {
-    width: 10rem;
-    height: 10rem;
-    opacity: 0.36;
-  }
-
-  .meshOne,
-  .meshTwo {
-    width: min(18rem, 82vw);
-    height: min(18rem, 82vw);
-  }
-
-  .pulseGrid {
-    inset: -3rem;
-    opacity: 0.08;
-  }
-
-  .sparkField {
-    opacity: 0.22;
+@media (prefers-reduced-motion: reduce) {
+  .background::before,
+  .auroraField,
+  .waveOne,
+  .waveTwo,
+  .waveThree,
+  .liquidFold,
+  .pearlSheen,
+  .warmAccents {
+    animation: none;
   }
 }

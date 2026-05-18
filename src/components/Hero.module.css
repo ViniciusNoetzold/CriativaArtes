@@ -36,9 +36,9 @@
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(115deg, rgba(248, 106, 169, 0.12), transparent 32%),
-    linear-gradient(250deg, rgba(99, 217, 227, 0.1), transparent 34%),
-    linear-gradient(180deg, rgba(23, 7, 31, 0.18), rgba(23, 7, 31, 0.58));
+    linear-gradient(112deg, rgba(248, 106, 169, 0.1), transparent 34%),
+    linear-gradient(248deg, rgba(99, 217, 227, 0.09), transparent 38%),
+    linear-gradient(180deg, rgba(8, 2, 13, 0.08), rgba(12, 3, 18, 0.58) 72%, rgba(8, 2, 13, 0.78));
 }
 
 .content {

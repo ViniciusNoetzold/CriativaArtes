@@ -9,7 +9,6 @@ import ProductCustomizer from './components/ProductCustomizer.jsx';
 import Products from './components/Products.jsx';
 import SiteBackground from './components/SiteBackground.jsx';
 import Testimonials from './components/Testimonials.jsx';
-import VisualBackground3D from './components/three/VisualBackground3D.jsx';
 import useActiveScene from './hooks/useActiveScene.js';
 
 export default function App() {
@@ -18,7 +17,6 @@ export default function App() {
   return (
     <>
       <SiteBackground activeScene={activeScene} />
-      <VisualBackground3D activeScene={activeScene} />
       <NavBar />
       <main>
         <Hero />

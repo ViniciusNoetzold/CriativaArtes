@@ -5,7 +5,7 @@
   overflow: hidden;
   pointer-events: none;
   contain: layout paint size;
-  opacity: 0.42;
+  opacity: 0.05;
 }
 
 .globalCanvas {
@@ -16,6 +16,6 @@
 
 @media (max-width: 768px) {
   .globalCanvasFrame {
-    opacity: 0.28;
+    opacity: 0.03;
   }
 }

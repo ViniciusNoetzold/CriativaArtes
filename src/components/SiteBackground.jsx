@@ -3,18 +3,15 @@ import styles from './SiteBackground.module.css';
 export default function SiteBackground({ activeScene = 'hero' }) {
   return (
     <div className={styles.background} data-active-scene={activeScene} aria-hidden="true">
-      <span className={styles.ribbonOne} />
-      <span className={styles.ribbonTwo} />
-      <span className={styles.ribbonThree} />
-      <span className={styles.beamOne} />
-      <span className={styles.beamTwo} />
-      <span className={styles.beamThree} />
-      <span className={styles.ringOne} />
-      <span className={styles.ringTwo} />
-      <span className={styles.meshOne} />
-      <span className={styles.meshTwo} />
-      <span className={styles.pulseGrid} />
-      <span className={styles.sparkField} />
+      <span className={styles.depthWash} />
+      <span className={styles.auroraField} />
+      <span className={styles.waveOne} />
+      <span className={styles.waveTwo} />
+      <span className={styles.waveThree} />
+      <span className={styles.liquidFold} />
+      <span className={styles.pearlSheen} />
+      <span className={styles.warmAccents} />
+      <span className={styles.softGrain} />
     </div>
   );
 }

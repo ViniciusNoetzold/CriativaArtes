@@ -49,10 +49,9 @@ body {
   margin: 0;
   overflow-x: hidden;
   background:
-    radial-gradient(circle at 10% 10%, rgba(248, 106, 169, 0.1), transparent 29rem),
-    radial-gradient(circle at 90% 8%, rgba(99, 217, 227, 0.08), transparent 30rem),
-    radial-gradient(circle at 55% 92%, rgba(255, 215, 106, 0.06), transparent 28rem),
-    linear-gradient(180deg, #17071f 0%, #251038 48%, #120619 100%);
+    linear-gradient(145deg, rgba(248, 106, 169, 0.08), transparent 34%),
+    linear-gradient(235deg, rgba(99, 217, 227, 0.07), transparent 42%),
+    linear-gradient(180deg, #09020f 0%, #17071f 48%, #071426 100%);
   overscroll-behavior-x: none;
 }
 
