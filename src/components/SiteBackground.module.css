@@ -1,8 +1,8 @@
 .background {
-  --wave-opacity: 0.86;
-  --wave-speed: 34s;
-  --wave-blur: 12px;
-  --wave-saturation: 1.34;
+  --wave-opacity: 0.74;
+  --wave-speed: 42s;
+  --wave-blur: 7px;
+  --wave-saturation: 1.18;
   --base-ink: #09020f;
   --base-purple: #180620;
   --base-wine: #2a0b2d;
@@ -20,7 +20,8 @@
   max-width: 100%;
   overflow: hidden;
   pointer-events: none;
-  contain: layout paint size;
+  contain: paint;
+  isolation: isolate;
   background:
     linear-gradient(150deg, rgba(52, 8, 59, 0.58), transparent 36%),
     linear-gradient(235deg, rgba(7, 28, 53, 0.84), transparent 46%),
@@ -36,9 +37,9 @@
 }
 
 .background::before {
-  inset: -18%;
+  inset: -7%;
   content: '';
-  opacity: calc(var(--wave-opacity) * 0.82);
+  opacity: calc(var(--wave-opacity) * 0.46);
   background:
     conic-gradient(
       from 218deg at 52% 42%,
@@ -50,10 +51,9 @@
       rgba(66, 137, 255, 0.24) 256deg,
       rgba(255, 113, 185, 0) 360deg
     );
-  filter: blur(42px) saturate(1.22);
-  mix-blend-mode: screen;
+  filter: blur(18px) saturate(1.08);
+  mix-blend-mode: normal;
   transform: translate3d(0, 0, 0);
-  animation: iridescentTurn calc(var(--wave-speed) * 1.55) ease-in-out infinite alternate;
 }
 
 .background::after {
@@ -66,6 +66,13 @@
 }
 
 .background span {
+  will-change: auto;
+}
+
+.auroraField,
+.waveOne,
+.waveTwo,
+.pearlSheen {
   will-change: transform, opacity;
 }
 
@@ -80,43 +87,37 @@
 }
 
 .auroraField {
-  inset: -24% -18%;
+  inset: -10% -8%;
   z-index: 1;
-  opacity: calc(var(--wave-opacity) * 0.74);
+  opacity: calc(var(--wave-opacity) * 0.62);
   background:
     linear-gradient(108deg, transparent 0 14%, rgba(255, 113, 185, 0.2) 23%, rgba(80, 231, 237, 0.26) 35%, transparent 49%),
-    linear-gradient(64deg, transparent 6%, rgba(185, 132, 255, 0.18) 24%, rgba(66, 137, 255, 0.22) 41%, transparent 61%),
-    repeating-linear-gradient(126deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 7.5rem);
+    linear-gradient(64deg, transparent 6%, rgba(185, 132, 255, 0.18) 24%, rgba(66, 137, 255, 0.2) 41%, transparent 61%);
   background-size:
     170% 140%,
-    160% 130%,
-    100% 100%;
-  filter: blur(24px) saturate(var(--wave-saturation));
-  mix-blend-mode: screen;
+    160% 130%;
+  filter: blur(10px) saturate(var(--wave-saturation));
+  mix-blend-mode: normal;
   transform: rotate(-7deg) scale(1.08);
   animation: auroraGlide calc(var(--wave-speed) * 1.2) ease-in-out infinite alternate;
-  -webkit-mask-image: linear-gradient(180deg, #000 0 86%, transparent 100%);
-  mask-image: linear-gradient(180deg, #000 0 86%, transparent 100%);
 }
 
 .waveOne,
-.waveTwo,
-.waveThree {
+.waveTwo {
   z-index: 2;
-  width: 142vw;
-  height: 44vh;
-  min-height: 19rem;
+  width: 126vw;
+  height: 38vh;
+  min-height: 16rem;
   border-radius: 52% 48% 46% 54%;
   filter: blur(var(--wave-blur)) saturate(var(--wave-saturation));
-  mix-blend-mode: screen;
+  mix-blend-mode: normal;
   opacity: var(--wave-opacity);
   overflow: hidden;
   transform-origin: 50% 50%;
 }
 
 .waveOne::before,
-.waveTwo::before,
-.waveThree::before {
+.waveTwo::before {
   position: absolute;
   inset: 12% 8%;
   display: block;
@@ -125,17 +126,16 @@
     linear-gradient(104deg, transparent 8%, rgba(255, 248, 255, 0.26) 21%, transparent 31%),
     linear-gradient(96deg, transparent 40%, rgba(80, 231, 237, 0.18) 49%, rgba(255, 113, 185, 0.14) 58%, transparent 70%);
   border-radius: inherit;
-  filter: blur(4px);
-  mix-blend-mode: screen;
-  opacity: 0.68;
+  filter: none;
+  mix-blend-mode: normal;
+  opacity: 0.42;
   transform: translate3d(-6%, 0, 0);
-  animation: waveHighlight calc(var(--wave-speed) * 0.78) ease-in-out infinite alternate;
 }
 
 .waveOne {
   top: -2vh;
-  left: -22vw;
-  height: 50vh;
+  left: -13vw;
+  height: 42vh;
   background:
     linear-gradient(100deg, transparent 0%, rgba(255, 113, 185, 0.52) 16%, rgba(185, 132, 255, 0.46) 31%, rgba(80, 231, 237, 0.46) 48%, rgba(66, 137, 255, 0.24) 64%, transparent 84%),
     linear-gradient(182deg, rgba(255, 255, 255, 0.11), transparent 48%);
@@ -145,8 +145,8 @@
 
 .waveTwo {
   top: 30vh;
-  right: -30vw;
-  height: 48vh;
+  right: -16vw;
+  height: 40vh;
   background:
     linear-gradient(92deg, transparent 0%, rgba(80, 231, 237, 0.36) 17%, rgba(66, 137, 255, 0.38) 32%, rgba(255, 113, 185, 0.3) 53%, rgba(255, 200, 95, 0.12) 72%, transparent 88%),
     linear-gradient(15deg, transparent, rgba(255, 255, 255, 0.09) 42%, transparent 66%);
@@ -155,64 +155,31 @@
   animation: waveDriftTwo calc(var(--wave-speed) * 1.15) ease-in-out infinite alternate;
 }
 
-.waveThree {
-  bottom: -10vh;
-  left: -14vw;
-  height: 40vh;
-  background:
-    linear-gradient(96deg, transparent 0%, rgba(255, 200, 95, 0.16) 13%, rgba(117, 217, 140, 0.24) 25%, rgba(80, 231, 237, 0.26) 42%, rgba(185, 132, 255, 0.28) 60%, transparent 82%),
-    linear-gradient(178deg, rgba(255, 255, 255, 0.08), transparent 50%);
-  opacity: calc(var(--wave-opacity) * 0.64);
-  transform: rotate(-6deg) translate3d(0, 0, 0);
-  animation: waveDriftThree calc(var(--wave-speed) * 1.32) ease-in-out infinite alternate;
-}
-
-.liquidFold {
-  inset: -14% -24%;
-  z-index: 3;
-  opacity: calc(var(--wave-opacity) * 0.54);
-  background:
-    linear-gradient(108deg, transparent 4%, rgba(255, 248, 255, 0.13) 15%, transparent 25%),
-    linear-gradient(118deg, transparent 28%, rgba(255, 113, 185, 0.18) 36%, rgba(80, 231, 237, 0.24) 45%, rgba(185, 132, 255, 0.16) 54%, transparent 66%),
-    linear-gradient(132deg, transparent 54%, rgba(255, 248, 255, 0.12) 60%, transparent 70%);
-  background-size:
-    150% 100%,
-    160% 120%,
-    140% 100%;
-  filter: blur(9px) saturate(1.24);
-  mix-blend-mode: screen;
-  transform: rotate(-5deg) translate3d(0, 0, 0);
-  animation: foldFlow calc(var(--wave-speed) * 0.86) ease-in-out infinite alternate;
-  -webkit-mask-image: linear-gradient(170deg, transparent 0 12%, #000 28% 76%, transparent 92%);
-  mask-image: linear-gradient(170deg, transparent 0 12%, #000 28% 76%, transparent 92%);
-}
-
 .pearlSheen {
-  inset: -12% -20%;
+  inset: -6% -8%;
   z-index: 4;
-  opacity: calc(var(--wave-opacity) * 0.42);
+  opacity: calc(var(--wave-opacity) * 0.28);
   background:
     linear-gradient(112deg, transparent 16%, rgba(255, 248, 255, 0.16) 28%, transparent 41%),
     linear-gradient(76deg, transparent 44%, rgba(80, 231, 237, 0.12) 52%, rgba(255, 113, 185, 0.1) 58%, transparent 70%);
   background-size:
     140% 130%,
     180% 150%;
-  filter: blur(10px);
-  mix-blend-mode: soft-light;
+  filter: none;
+  mix-blend-mode: normal;
   animation: sheenFlow calc(var(--wave-speed) * 0.9) ease-in-out infinite alternate;
 }
 
 .warmAccents {
-  inset: -18% -16%;
+  inset: -6% -8%;
   z-index: 4;
-  opacity: 0.22;
+  opacity: 0.18;
   background:
     linear-gradient(124deg, transparent 0 42%, rgba(255, 200, 95, 0.12) 48%, rgba(246, 154, 87, 0.1) 54%, transparent 64%),
     linear-gradient(58deg, transparent 0 56%, rgba(117, 217, 140, 0.11) 63%, transparent 74%);
-  filter: blur(18px) saturate(1.1);
-  mix-blend-mode: screen;
+  filter: none;
+  mix-blend-mode: normal;
   transform: rotate(-5deg);
-  animation: warmGlide calc(var(--wave-speed) * 1.45) ease-in-out infinite alternate;
 }
 
 .softGrain {
@@ -220,16 +187,16 @@
   z-index: 6;
   opacity: 0.045;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.72'/%3E%3C/svg%3E");
-  mix-blend-mode: soft-light;
+  mix-blend-mode: normal;
 }
 
 .background[data-active-scene='hero'] {
-  --wave-opacity: 0.96;
-  --wave-speed: 32s;
+  --wave-opacity: 0.82;
+  --wave-speed: 38s;
 }
 
 .background[data-active-scene='products'] {
-  --wave-opacity: 0.72;
+  --wave-opacity: 0.62;
 }
 
 .background[data-active-scene='products'] .waveOne,
@@ -238,7 +205,7 @@
 }
 
 .background[data-active-scene='customizer'] {
-  --wave-opacity: 0.68;
+  --wave-opacity: 0.58;
 }
 
 .background[data-active-scene='customizer'] .warmAccents {
@@ -247,42 +214,24 @@
 
 .background[data-active-scene='process'],
 .background[data-active-scene='testimonials'] {
-  --wave-opacity: 0.64;
+  --wave-opacity: 0.54;
 }
 
 .background[data-active-scene='gallery'] {
-  --wave-opacity: 0.76;
+  --wave-opacity: 0.64;
 }
 
 .background[data-active-scene='cta'] {
-  --wave-opacity: 0.8;
-}
-
-@keyframes iridescentTurn {
-  from {
-    transform: translate3d(-3%, -2%, 0) rotate(-6deg) scale(1.02);
-  }
-
-  to {
-    transform: translate3d(4%, 3%, 0) rotate(8deg) scale(1.08);
-  }
+  --wave-opacity: 0.68;
 }
 
 @keyframes auroraGlide {
   from {
     transform: translate3d(-4%, 1%, 0) rotate(-7deg) scale(1.08);
-    background-position:
-      0% 38%,
-      80% 20%,
-      0 0;
   }
 
   to {
     transform: translate3d(5%, -2%, 0) rotate(-2deg) scale(1.13);
-    background-position:
-      100% 52%,
-      0% 70%,
-      8rem -6rem;
   }
 }
 
@@ -306,67 +255,13 @@
   }
 }
 
-@keyframes waveDriftThree {
-  from {
-    transform: rotate(-6deg) translate3d(-5vw, 1rem, 0) scale(0.98);
-  }
-
-  to {
-    transform: rotate(-13deg) translate3d(8vw, -2.8rem, 0) scale(1.05);
-  }
-}
-
-@keyframes waveHighlight {
-  from {
-    transform: translate3d(-8%, -1%, 0) scaleX(0.96);
-  }
-
-  to {
-    transform: translate3d(8%, 2%, 0) scaleX(1.05);
-  }
-}
-
 @keyframes sheenFlow {
   from {
     transform: translate3d(-5%, 0, 0) rotate(-2deg);
-    background-position:
-      0% 42%,
-      100% 24%;
   }
 
   to {
     transform: translate3d(5%, -2%, 0) rotate(3deg);
-    background-position:
-      100% 52%,
-      0% 74%;
-  }
-}
-
-@keyframes foldFlow {
-  from {
-    transform: translate3d(-4%, 1%, 0) rotate(-5deg) scale(1.02);
-    background-position:
-      0% 38%,
-      100% 48%,
-      20% 62%;
-  }
-
-  to {
-    transform: translate3d(4%, -2%, 0) rotate(2deg) scale(1.07);
-    background-position:
-      100% 52%,
-      0% 42%,
-      90% 48%;
-  }
-}
-
-@keyframes warmGlide {
-  from {
-    transform: translate3d(-3%, 2%, 0) rotate(-5deg);
-  }
-
-  to {
-    transform: translate3d(4%, -1%, 0) rotate(1deg);
   }
 }
 
@@ -415,8 +310,6 @@
 
   .background .auroraField,
   .background .waveTwo,
-  .background .waveThree,
-  .background .liquidFold,
   .background .pearlSheen,
   .background .warmAccents,
   .background .softGrain {
@@ -427,8 +320,7 @@
   }
 
   .waveOne,
-  .waveTwo,
-  .waveThree {
+  .waveTwo {
     width: 178vw;
     height: 28vh;
     min-height: 13.5rem;
@@ -450,8 +342,7 @@
   }
 
   .waveOne::before,
-  .waveTwo::before,
-  .waveThree::before {
+  .waveTwo::before {
     display: none;
   }
 }
@@ -461,8 +352,6 @@
   .auroraField,
   .waveOne,
   .waveTwo,
-  .waveThree,
-  .liquidFold,
   .pearlSheen,
   .warmAccents {
     animation: none;
