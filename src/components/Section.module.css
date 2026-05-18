@@ -3,7 +3,7 @@
   padding: 5.8rem 1.5rem;
   overflow: hidden;
   isolation: isolate;
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: calc(var(--nav-height) + 1rem);
 }
 
 .section::before {
@@ -104,7 +104,7 @@
 
 @media (max-width: 640px) {
   .section {
-    padding: 4.1rem 1rem;
+    padding: 3.7rem 1rem;
   }
 
   .section::after {

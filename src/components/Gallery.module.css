@@ -50,6 +50,10 @@
   margin: 0 auto;
 }
 
+.mobileControls {
+  display: none;
+}
+
 .card {
   --tile-a: #ff4fa8;
   --tile-b: #a56cff;
@@ -194,6 +198,7 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     width: min(100%, 28rem);
     margin-top: -0.75rem;
+    margin-bottom: 1rem;
   }
 
   .filterButton {
@@ -201,9 +206,141 @@
     min-height: 2.75rem;
   }
 
-  .grid {
-    grid-template-columns: 1fr;
+  .mobileControls {
+    display: flex;
+    gap: 0.65rem;
+    align-items: center;
+    justify-content: space-between;
     width: min(100%, 28rem);
+    margin: 0 auto 0.85rem;
+  }
+
+  .expandButton,
+  .arrowButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.65rem;
+    cursor: pointer;
+    border-radius: 999px;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .expandButton {
+    min-width: 10.5rem;
+    padding: 0.72rem 1rem;
+    color: #1a0820;
+    font-size: 0.88rem;
+    font-weight: 900;
+    line-height: 1.1;
+    background: linear-gradient(120deg, var(--yellow), var(--orange), var(--magenta));
+    box-shadow: 0 10px 22px rgba(248, 106, 169, 0.16);
+  }
+
+  .carouselButtons {
+    display: inline-flex;
+    gap: 0.45rem;
+    flex: 0 0 auto;
+  }
+
+  .arrowButton {
+    width: 2.65rem;
+    color: var(--white);
+    background: rgba(255, 248, 255, 0.075);
+    border: 1px solid rgba(255, 248, 255, 0.16);
+  }
+
+  .expandButton:hover,
+  .expandButton:focus-visible,
+  .arrowButton:hover,
+  .arrowButton:focus-visible {
+    transform: translateY(-2px);
+  }
+
+  .arrowButton:hover,
+  .arrowButton:focus-visible {
+    border-color: rgba(99, 217, 227, 0.34);
+    background: rgba(99, 217, 227, 0.1);
+  }
+
+  .arrowIcon {
+    width: 0.72rem;
+    height: 0.72rem;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: translateX(-1px) rotate(45deg);
+  }
+
+  .arrowLeft {
+    transform: translateX(1px) rotate(-135deg);
+  }
+
+  .expandedControls {
+    justify-content: stretch;
+  }
+
+  .expandedControls .expandButton {
+    width: 100%;
+  }
+
+  .carouselMode {
+    display: flex;
+    grid-template-columns: none;
+    gap: 0.82rem;
+    width: min(100%, 28rem);
+    padding: 0 0.1rem 0.55rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-padding-inline: 0.1rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+  }
+
+  .carouselMode::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobileCollapsed .card:nth-of-type(n + 7) {
+    display: none;
+  }
+
+  .carouselMode .card {
+    flex: 0 0 clamp(17.25rem, 82vw, 21rem);
+    scroll-snap-align: start;
+  }
+
+  .expandedMode {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    width: min(100%, 28rem);
+    padding: 0;
+    margin-right: auto;
+    margin-left: auto;
+    overflow: visible;
+    scroll-snap-type: none;
+    touch-action: auto;
+  }
+
+  .expandedMode .card {
+    width: 100%;
+    flex: none;
+    scroll-snap-align: none;
+  }
+
+  .media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .image {
+    object-fit: contain;
+    padding: 0.28rem;
   }
 
   .label {

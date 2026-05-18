@@ -174,6 +174,10 @@
   min-width: 0;
 }
 
+.productControls {
+  display: none;
+}
+
 .option {
   --option-color: var(--cyan);
   position: relative;
@@ -194,6 +198,20 @@
     background 0.2s ease;
 }
 
+.option::after {
+  position: absolute;
+  inset: 0.34rem;
+  pointer-events: none;
+  content: '';
+  border: 1px solid transparent;
+  border-radius: calc(var(--radius-card) - 2px);
+  opacity: 0;
+  transition:
+    border-color 0.2s ease,
+    opacity 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
 .option input,
 .packageOption input {
   position: absolute;
@@ -205,7 +223,6 @@
   white-space: nowrap;
 }
 
-.option:has(input:checked),
 .option:hover {
   border-color: color-mix(in srgb, var(--option-color), transparent 28%);
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
@@ -214,8 +231,21 @@
 
 .option:has(input:checked) {
   background:
-    linear-gradient(145deg, color-mix(in srgb, var(--option-color), transparent 86%), rgba(255, 255, 255, 0.05)),
+    linear-gradient(145deg, color-mix(in srgb, var(--option-color), transparent 82%), rgba(255, 255, 255, 0.055)),
     rgba(255, 255, 255, 0.06);
+  border-color: color-mix(in srgb, var(--option-color), white 12%);
+  box-shadow:
+    inset 0 0 0 1px color-mix(in srgb, var(--option-color), transparent 18%),
+    0 0 0 1px rgba(255, 248, 255, 0.05),
+    0 12px 28px rgba(0, 0, 0, 0.18),
+    0 0 22px color-mix(in srgb, var(--option-color), transparent 82%);
+  transform: none;
+}
+
+.option:has(input:checked)::after {
+  border-color: color-mix(in srgb, var(--option-color), white 22%);
+  box-shadow: inset 0 0 18px color-mix(in srgb, var(--option-color), transparent 88%);
+  opacity: 1;
 }
 
 .optionTitle {
@@ -508,33 +538,160 @@
 }
 
 @media (max-width: 700px) {
+  .header {
+    margin-bottom: 1.75rem;
+  }
+
+  .builder {
+    gap: 0.85rem;
+  }
+
   .form,
   .summary {
-    padding: 0.95rem;
+    padding: 0.9rem;
   }
 
   .clientRow,
-  .productGrid,
   .packageGrid {
     grid-template-columns: 1fr;
   }
 
+  .clientRow {
+    gap: 0.82rem;
+    margin-bottom: 1rem;
+  }
+
+  .field input,
+  .field textarea {
+    padding: 0.78rem 0.82rem;
+    font-size: 1rem;
+  }
+
+  .field textarea {
+    min-height: 6.2rem;
+  }
+
+  .group {
+    margin-bottom: 1rem;
+  }
+
+  .productGroup {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0 0.7rem;
+    align-items: center;
+  }
+
+  .productGroup legend {
+    grid-column: 1;
+    margin-bottom: 0;
+  }
+
+  .productControls {
+    display: inline-flex;
+    grid-column: 2;
+    gap: 0.45rem;
+    justify-self: end;
+    margin-bottom: 0.72rem;
+  }
+
+  .arrowButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.45rem;
+    min-height: 2.45rem;
+    color: var(--white);
+    cursor: pointer;
+    background: rgba(255, 248, 255, 0.075);
+    border: 1px solid rgba(255, 248, 255, 0.16);
+    border-radius: 999px;
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease,
+      background 0.2s ease;
+  }
+
+  .arrowButton:hover,
+  .arrowButton:focus-visible {
+    border-color: rgba(99, 217, 227, 0.34);
+    background: rgba(99, 217, 227, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .arrowIcon {
+    width: 0.68rem;
+    height: 0.68rem;
+    border-top: 2px solid currentColor;
+    border-right: 2px solid currentColor;
+    transform: translateX(-1px) rotate(45deg);
+  }
+
+  .arrowLeft {
+    transform: translateX(1px) rotate(-135deg);
+  }
+
+  .productGrid {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 0.65rem;
+    padding: 0 0.1rem 0.45rem;
+    margin-inline: -0.1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x;
+    scroll-padding-inline: 0.1rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .productGrid::-webkit-scrollbar {
+    display: none;
+  }
+
   .option {
-    min-height: auto;
+    flex: 0 0 clamp(14.8rem, 76vw, 19rem);
+    min-height: 9.45rem;
     padding: 0.9rem;
+    scroll-snap-align: start;
+  }
+
+  .packageGrid {
+    gap: 0.52rem;
+  }
+
+  .packageOption {
+    min-height: 0;
+    padding: 0.78rem 0.85rem 0.78rem 2.5rem;
   }
 
   .whatsappButton {
-    box-shadow: none;
+    min-height: 3.08rem;
+    padding: 0.75rem 0.9rem;
+    box-shadow:
+      0 0 18px rgba(248, 106, 169, 0.16),
+      0 8px 20px rgba(246, 154, 87, 0.1);
   }
 
   .total {
-    font-size: 2.85rem;
+    font-size: 2.6rem;
   }
 
   .resume div {
     grid-template-columns: 1fr;
     gap: 0.22rem;
+  }
+
+  .priceBox {
+    padding: 0.85rem;
+    margin-bottom: 0.72rem;
+  }
+
+  .preview {
+    margin-top: 0.75rem;
+    padding: 0.78rem;
   }
 }
 

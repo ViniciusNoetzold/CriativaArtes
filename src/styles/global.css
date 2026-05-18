@@ -23,6 +23,7 @@
   --brand-gradient: linear-gradient(120deg, var(--magenta), var(--orange), var(--yellow), var(--green), var(--cyan), var(--purple));
   --font-display: 'Bebas Neue', sans-serif;
   --font-body: 'Nunito', sans-serif;
+  --nav-height: 62px;
   color: var(--white);
   background: var(--bg);
   font-family: var(--font-body);
@@ -37,6 +38,8 @@ html {
   max-width: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  scrollbar-color: rgba(248, 106, 169, 0.62) rgba(16, 5, 22, 0.9);
+  scrollbar-width: thin;
 }
 
 body {
@@ -51,6 +54,29 @@ body {
     radial-gradient(circle at 55% 92%, rgba(255, 215, 106, 0.06), transparent 28rem),
     linear-gradient(180deg, #17071f 0%, #251038 48%, #120619 100%);
   overscroll-behavior-x: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  html::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  html::-webkit-scrollbar-track {
+    background:
+      linear-gradient(180deg, rgba(248, 106, 169, 0.08), rgba(99, 217, 227, 0.07)),
+      rgba(16, 5, 22, 0.92);
+  }
+
+  html::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(248, 106, 169, 0.82), rgba(246, 154, 87, 0.78), rgba(99, 217, 227, 0.7));
+    border: 3px solid rgba(16, 5, 22, 0.9);
+    border-radius: 999px;
+  }
+
+  html::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--magenta), var(--orange), var(--cyan));
+  }
 }
 
 button,
@@ -127,5 +153,31 @@ video {
     animation-duration: 0.001ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
+  }
+}
+
+@media (max-width: 1120px) {
+  :root {
+    --nav-height: 58px;
+  }
+}
+
+@media (max-width: 620px) {
+  :root {
+    --nav-height: 56px;
+  }
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  html {
+    scrollbar-width: none;
+  }
+
+  html::-webkit-scrollbar {
+    width: 0;
+    height: 0;
   }
 }
