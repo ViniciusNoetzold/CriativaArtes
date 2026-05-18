@@ -18,6 +18,14 @@ export default function useAutoCarousel({
 } = {}) {
   const trackRef = useRef(null);
   const isPausedRef = useRef(false);
+  const dragRef = useRef({
+    isPointerDown: false,
+    isDragging: false,
+    pointerId: null,
+    startScrollLeft: 0,
+    startX: 0,
+    startY: 0,
+  });
   const [matchesBreakpoint, setMatchesBreakpoint] = useState(false);
 
   const isActive = enabled && matchesBreakpoint;
@@ -101,16 +109,83 @@ export default function useAutoCarousel({
     [scrollByStep],
   );
 
+  const handlePointerDown = useCallback(
+    (event) => {
+      const track = trackRef.current;
+      if (!isActive || !track) return;
+      if (event.pointerType === 'mouse' && event.button !== 0) return;
+
+      pauseAutoScroll();
+      dragRef.current = {
+        isPointerDown: true,
+        isDragging: false,
+        pointerId: event.pointerId,
+        startScrollLeft: track.scrollLeft,
+        startX: event.clientX,
+        startY: event.clientY,
+      };
+    },
+    [isActive, pauseAutoScroll],
+  );
+
+  const handlePointerMove = useCallback((event) => {
+    const track = trackRef.current;
+    const drag = dragRef.current;
+    if (!track || !drag.isPointerDown) return;
+
+    const deltaX = event.clientX - drag.startX;
+    const deltaY = event.clientY - drag.startY;
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
+
+    if (!drag.isDragging) {
+      if (absX < 8 && absY < 8) return;
+
+      if (absY > absX * 1.15) {
+        dragRef.current.isPointerDown = false;
+        return;
+      }
+
+      dragRef.current.isDragging = true;
+      track.setPointerCapture?.(event.pointerId);
+    }
+
+    event.preventDefault();
+    track.scrollLeft = drag.startScrollLeft - deltaX;
+  }, []);
+
+  const handlePointerEnd = useCallback((event) => {
+    const track = trackRef.current;
+    const drag = dragRef.current;
+
+    if (track && drag.isDragging && drag.pointerId !== null) {
+      track.releasePointerCapture?.(event.pointerId);
+    }
+
+    dragRef.current = {
+      isPointerDown: false,
+      isDragging: false,
+      pointerId: null,
+      startScrollLeft: 0,
+      startX: 0,
+      startY: 0,
+    };
+  }, []);
+
   const trackProps = useMemo(
     () => ({
       ref: trackRef,
       onKeyDown: handleKeyDown,
-      onPointerDown: pauseAutoScroll,
+      onPointerCancel: handlePointerEnd,
+      onPointerDown: handlePointerDown,
+      onPointerLeave: handlePointerEnd,
+      onPointerMove: handlePointerMove,
+      onPointerUp: handlePointerEnd,
       onTouchStart: pauseAutoScroll,
       onWheel: pauseAutoScroll,
       tabIndex: isActive ? 0 : undefined,
     }),
-    [handleKeyDown, isActive, pauseAutoScroll],
+    [handleKeyDown, handlePointerDown, handlePointerEnd, handlePointerMove, isActive, pauseAutoScroll],
   );
 
   return {

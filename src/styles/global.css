@@ -5,14 +5,14 @@
 }
 
 :root {
-  --bg: #17071f;
-  --bg-2: #251038;
-  --magenta: #f86aa9;
-  --cyan: #63d9e3;
+  --bg: #210a31;
+  --bg-2: #351552;
+  --magenta: #ff6fb6;
+  --cyan: #67e9f3;
   --yellow: #ffd76a;
   --orange: #f69a57;
-  --purple: #a77cec;
-  --green: #75d98c;
+  --purple: #b78cff;
+  --green: #80e69a;
   --white: #fff8ff;
   --surface: rgba(43, 18, 58, 0.76);
   --surface-soft: rgba(255, 248, 255, 0.075);
@@ -38,7 +38,7 @@ html {
   max-width: 100%;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  scrollbar-color: rgba(248, 106, 169, 0.62) rgba(16, 5, 22, 0.9);
+  scrollbar-color: rgba(255, 111, 182, 0.72) rgba(29, 8, 42, 0.86);
   scrollbar-width: thin;
 }
 
@@ -49,9 +49,9 @@ body {
   margin: 0;
   overflow-x: hidden;
   background:
-    linear-gradient(145deg, rgba(248, 106, 169, 0.08), transparent 34%),
-    linear-gradient(235deg, rgba(99, 217, 227, 0.07), transparent 42%),
-    linear-gradient(180deg, #09020f 0%, #17071f 48%, #071426 100%);
+    linear-gradient(145deg, rgba(255, 111, 182, 0.13), transparent 34%),
+    linear-gradient(235deg, rgba(103, 233, 243, 0.12), transparent 42%),
+    linear-gradient(180deg, #14061f 0%, #210a31 48%, #08294d 100%);
   overscroll-behavior-x: none;
 }
 
@@ -64,12 +64,12 @@ body {
   html::-webkit-scrollbar-track {
     background:
       linear-gradient(180deg, rgba(248, 106, 169, 0.08), rgba(99, 217, 227, 0.07)),
-      rgba(16, 5, 22, 0.92);
+      rgba(29, 8, 42, 0.88);
   }
 
   html::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, rgba(248, 106, 169, 0.82), rgba(246, 154, 87, 0.78), rgba(99, 217, 227, 0.7));
-    border: 3px solid rgba(16, 5, 22, 0.9);
+    background: linear-gradient(180deg, rgba(255, 111, 182, 0.9), rgba(246, 154, 87, 0.84), rgba(103, 233, 243, 0.82));
+    border: 3px solid rgba(29, 8, 42, 0.86);
     border-radius: 999px;
   }
 
@@ -130,7 +130,7 @@ video {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  filter: drop-shadow(0 0 8px rgba(248, 106, 169, 0.1));
+  filter: drop-shadow(0 0 10px rgba(255, 111, 182, 0.16));
   animation: shiftGradient 4s linear infinite;
 }
 

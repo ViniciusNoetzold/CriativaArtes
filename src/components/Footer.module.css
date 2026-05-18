@@ -2,9 +2,10 @@
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 12% 0%, rgba(248, 106, 169, 0.12), transparent 26rem),
-    radial-gradient(circle at 92% 30%, rgba(55, 228, 238, 0.08), transparent 24rem),
-    #100514;
+    radial-gradient(circle at 12% 0%, rgba(255, 111, 182, 0.18), transparent 26rem),
+    radial-gradient(circle at 92% 30%, rgba(103, 233, 243, 0.13), transparent 24rem),
+    radial-gradient(circle at 50% 100%, rgba(183, 140, 255, 0.1), transparent 28rem),
+    #17061f;
   border-top: 1px solid rgba(255, 248, 255, 0.12);
 }
 
@@ -14,9 +15,9 @@
   pointer-events: none;
   content: '';
   background:
-    linear-gradient(115deg, transparent 0 46%, rgba(255, 248, 255, 0.035) 46% 46.3%, transparent 46.3%),
-    radial-gradient(circle at 50% 100%, rgba(255, 215, 106, 0.055), transparent 28rem);
-  opacity: 0.8;
+    linear-gradient(115deg, transparent 0 46%, rgba(255, 248, 255, 0.05) 46% 46.3%, transparent 46.3%),
+    radial-gradient(circle at 50% 100%, rgba(255, 215, 106, 0.08), transparent 28rem);
+  opacity: 0.86;
 }
 
 .inner {
@@ -46,7 +47,7 @@
   border-radius: 18px;
   box-shadow:
     0 14px 34px rgba(0, 0, 0, 0.28),
-    0 0 26px rgba(248, 106, 169, 0.18);
+    0 0 26px rgba(255, 111, 182, 0.24);
 }
 
 .brandColumn p,
@@ -132,7 +133,7 @@
   text-decoration: none;
   background: linear-gradient(120deg, var(--yellow), var(--orange), var(--magenta));
   border-radius: 999px;
-  box-shadow: 0 12px 28px rgba(248, 106, 169, 0.18);
+  box-shadow: 0 12px 28px rgba(255, 111, 182, 0.24);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -140,7 +141,7 @@
 
 .footerButton:hover,
 .footerButton:focus-visible {
-  box-shadow: 0 15px 34px rgba(246, 154, 87, 0.24);
+  box-shadow: 0 15px 34px rgba(246, 154, 87, 0.32);
   transform: translateY(-2px);
 }
 

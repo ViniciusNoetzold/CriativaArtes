@@ -1,18 +1,18 @@
 .background {
-  --wave-opacity: 0.74;
+  --wave-opacity: 0.84;
   --wave-speed: 42s;
   --wave-blur: 7px;
-  --wave-saturation: 1.18;
-  --base-ink: #09020f;
-  --base-purple: #180620;
-  --base-wine: #2a0b2d;
-  --base-blue: #071426;
-  --pearl-pink: rgba(255, 113, 185, 0.42);
-  --pearl-lilac: rgba(185, 132, 255, 0.38);
-  --pearl-blue: rgba(66, 137, 255, 0.34);
-  --pearl-cyan: rgba(80, 231, 237, 0.42);
-  --pearl-green: rgba(117, 217, 140, 0.2);
-  --pearl-warm: rgba(255, 200, 95, 0.18);
+  --wave-saturation: 1.32;
+  --base-ink: #14061f;
+  --base-purple: #2b0f48;
+  --base-wine: #43103f;
+  --base-blue: #08294d;
+  --pearl-pink: rgba(255, 107, 190, 0.58);
+  --pearl-lilac: rgba(205, 158, 255, 0.52);
+  --pearl-blue: rgba(75, 150, 255, 0.48);
+  --pearl-cyan: rgba(82, 239, 245, 0.58);
+  --pearl-green: rgba(126, 230, 155, 0.3);
+  --pearl-warm: rgba(255, 211, 99, 0.28);
   position: fixed;
   inset: 0;
   z-index: 0;
@@ -23,8 +23,8 @@
   contain: paint;
   isolation: isolate;
   background:
-    linear-gradient(150deg, rgba(52, 8, 59, 0.58), transparent 36%),
-    linear-gradient(235deg, rgba(7, 28, 53, 0.84), transparent 46%),
+    linear-gradient(150deg, rgba(117, 30, 139, 0.62), transparent 38%),
+    linear-gradient(235deg, rgba(12, 74, 131, 0.72), transparent 48%),
     linear-gradient(180deg, var(--base-ink) 0%, var(--base-purple) 34%, var(--base-wine) 58%, var(--base-blue) 100%);
 }
 
@@ -39,19 +39,19 @@
 .background::before {
   inset: -7%;
   content: '';
-  opacity: calc(var(--wave-opacity) * 0.46);
+  opacity: calc(var(--wave-opacity) * 0.62);
   background:
     conic-gradient(
       from 218deg at 52% 42%,
       rgba(255, 113, 185, 0) 0deg,
-      rgba(255, 113, 185, 0.26) 44deg,
-      rgba(80, 231, 237, 0.28) 92deg,
-      rgba(185, 132, 255, 0.22) 142deg,
-      rgba(255, 200, 95, 0.1) 194deg,
-      rgba(66, 137, 255, 0.24) 256deg,
+      rgba(255, 107, 190, 0.38) 44deg,
+      rgba(82, 239, 245, 0.4) 92deg,
+      rgba(205, 158, 255, 0.34) 142deg,
+      rgba(255, 211, 99, 0.16) 194deg,
+      rgba(75, 150, 255, 0.34) 256deg,
       rgba(255, 113, 185, 0) 360deg
     );
-  filter: blur(18px) saturate(1.08);
+  filter: blur(18px) saturate(1.18);
   mix-blend-mode: normal;
   transform: translate3d(0, 0, 0);
 }
@@ -61,8 +61,8 @@
   z-index: 5;
   content: '';
   background:
-    linear-gradient(180deg, rgba(6, 1, 10, 0.3) 0%, rgba(12, 3, 18, 0.16) 28%, rgba(7, 2, 14, 0.42) 100%),
-    linear-gradient(90deg, rgba(5, 1, 10, 0.48) 0%, transparent 18%, transparent 82%, rgba(5, 1, 10, 0.52) 100%);
+    linear-gradient(180deg, rgba(12, 3, 20, 0.2) 0%, rgba(25, 7, 33, 0.08) 28%, rgba(13, 4, 22, 0.3) 100%),
+    linear-gradient(90deg, rgba(9, 2, 18, 0.34) 0%, transparent 18%, transparent 82%, rgba(8, 2, 18, 0.36) 100%);
 }
 
 .background span {
@@ -79,20 +79,20 @@
 .depthWash {
   inset: -6%;
   z-index: 0;
-  opacity: 0.92;
+  opacity: 0.84;
   background:
-    linear-gradient(118deg, rgba(53, 10, 68, 0.72), transparent 42%),
-    linear-gradient(256deg, rgba(7, 41, 70, 0.58), transparent 46%),
-    linear-gradient(180deg, rgba(7, 2, 12, 0.34), rgba(7, 2, 12, 0.72));
+    linear-gradient(118deg, rgba(94, 22, 120, 0.68), transparent 42%),
+    linear-gradient(256deg, rgba(10, 89, 132, 0.54), transparent 46%),
+    linear-gradient(180deg, rgba(20, 6, 32, 0.2), rgba(23, 8, 40, 0.58));
 }
 
 .auroraField {
   inset: -10% -8%;
   z-index: 1;
-  opacity: calc(var(--wave-opacity) * 0.62);
+  opacity: calc(var(--wave-opacity) * 0.72);
   background:
-    linear-gradient(108deg, transparent 0 14%, rgba(255, 113, 185, 0.2) 23%, rgba(80, 231, 237, 0.26) 35%, transparent 49%),
-    linear-gradient(64deg, transparent 6%, rgba(185, 132, 255, 0.18) 24%, rgba(66, 137, 255, 0.2) 41%, transparent 61%);
+    linear-gradient(108deg, transparent 0 14%, rgba(255, 107, 190, 0.31) 23%, rgba(82, 239, 245, 0.36) 35%, transparent 49%),
+    linear-gradient(64deg, transparent 6%, rgba(205, 158, 255, 0.27) 24%, rgba(75, 150, 255, 0.3) 41%, transparent 61%);
   background-size:
     170% 140%,
     160% 130%;
@@ -123,12 +123,12 @@
   display: block;
   content: '';
   background:
-    linear-gradient(104deg, transparent 8%, rgba(255, 248, 255, 0.26) 21%, transparent 31%),
-    linear-gradient(96deg, transparent 40%, rgba(80, 231, 237, 0.18) 49%, rgba(255, 113, 185, 0.14) 58%, transparent 70%);
+    linear-gradient(104deg, transparent 8%, rgba(255, 248, 255, 0.34) 21%, transparent 31%),
+    linear-gradient(96deg, transparent 40%, rgba(82, 239, 245, 0.28) 49%, rgba(255, 107, 190, 0.22) 58%, transparent 70%);
   border-radius: inherit;
   filter: none;
   mix-blend-mode: normal;
-  opacity: 0.42;
+  opacity: 0.5;
   transform: translate3d(-6%, 0, 0);
 }
 
@@ -137,8 +137,8 @@
   left: -13vw;
   height: 42vh;
   background:
-    linear-gradient(100deg, transparent 0%, rgba(255, 113, 185, 0.52) 16%, rgba(185, 132, 255, 0.46) 31%, rgba(80, 231, 237, 0.46) 48%, rgba(66, 137, 255, 0.24) 64%, transparent 84%),
-    linear-gradient(182deg, rgba(255, 255, 255, 0.11), transparent 48%);
+    linear-gradient(100deg, transparent 0%, rgba(255, 107, 190, 0.66) 16%, rgba(205, 158, 255, 0.56) 31%, rgba(82, 239, 245, 0.58) 48%, rgba(75, 150, 255, 0.34) 64%, transparent 84%),
+    linear-gradient(182deg, rgba(255, 255, 255, 0.15), transparent 48%);
   transform: rotate(-10deg) translate3d(-2vw, 0, 0);
   animation: waveDriftOne var(--wave-speed) ease-in-out infinite alternate;
 }
@@ -148,9 +148,9 @@
   right: -16vw;
   height: 40vh;
   background:
-    linear-gradient(92deg, transparent 0%, rgba(80, 231, 237, 0.36) 17%, rgba(66, 137, 255, 0.38) 32%, rgba(255, 113, 185, 0.3) 53%, rgba(255, 200, 95, 0.12) 72%, transparent 88%),
-    linear-gradient(15deg, transparent, rgba(255, 255, 255, 0.09) 42%, transparent 66%);
-  opacity: calc(var(--wave-opacity) * 0.78);
+    linear-gradient(92deg, transparent 0%, rgba(82, 239, 245, 0.5) 17%, rgba(75, 150, 255, 0.48) 32%, rgba(255, 107, 190, 0.42) 53%, rgba(255, 211, 99, 0.22) 72%, transparent 88%),
+    linear-gradient(15deg, transparent, rgba(255, 255, 255, 0.14) 42%, transparent 66%);
+  opacity: calc(var(--wave-opacity) * 0.86);
   transform: rotate(13deg) translate3d(4vw, 0, 0);
   animation: waveDriftTwo calc(var(--wave-speed) * 1.15) ease-in-out infinite alternate;
 }
@@ -158,10 +158,10 @@
 .pearlSheen {
   inset: -6% -8%;
   z-index: 4;
-  opacity: calc(var(--wave-opacity) * 0.28);
+  opacity: calc(var(--wave-opacity) * 0.38);
   background:
-    linear-gradient(112deg, transparent 16%, rgba(255, 248, 255, 0.16) 28%, transparent 41%),
-    linear-gradient(76deg, transparent 44%, rgba(80, 231, 237, 0.12) 52%, rgba(255, 113, 185, 0.1) 58%, transparent 70%);
+    linear-gradient(112deg, transparent 16%, rgba(255, 248, 255, 0.24) 28%, transparent 41%),
+    linear-gradient(76deg, transparent 44%, rgba(82, 239, 245, 0.2) 52%, rgba(255, 107, 190, 0.16) 58%, transparent 70%);
   background-size:
     140% 130%,
     180% 150%;
@@ -173,10 +173,10 @@
 .warmAccents {
   inset: -6% -8%;
   z-index: 4;
-  opacity: 0.18;
+  opacity: 0.28;
   background:
-    linear-gradient(124deg, transparent 0 42%, rgba(255, 200, 95, 0.12) 48%, rgba(246, 154, 87, 0.1) 54%, transparent 64%),
-    linear-gradient(58deg, transparent 0 56%, rgba(117, 217, 140, 0.11) 63%, transparent 74%);
+    linear-gradient(124deg, transparent 0 42%, rgba(255, 211, 99, 0.2) 48%, rgba(255, 146, 78, 0.16) 54%, transparent 64%),
+    linear-gradient(58deg, transparent 0 56%, rgba(126, 230, 155, 0.18) 63%, transparent 74%);
   filter: none;
   mix-blend-mode: normal;
   transform: rotate(-5deg);
@@ -191,12 +191,12 @@
 }
 
 .background[data-active-scene='hero'] {
-  --wave-opacity: 0.82;
+  --wave-opacity: 0.92;
   --wave-speed: 38s;
 }
 
 .background[data-active-scene='products'] {
-  --wave-opacity: 0.62;
+  --wave-opacity: 0.74;
 }
 
 .background[data-active-scene='products'] .waveOne,
@@ -205,7 +205,7 @@
 }
 
 .background[data-active-scene='customizer'] {
-  --wave-opacity: 0.58;
+  --wave-opacity: 0.7;
 }
 
 .background[data-active-scene='customizer'] .warmAccents {
@@ -214,15 +214,15 @@
 
 .background[data-active-scene='process'],
 .background[data-active-scene='testimonials'] {
-  --wave-opacity: 0.54;
-}
-
-.background[data-active-scene='gallery'] {
   --wave-opacity: 0.64;
 }
 
+.background[data-active-scene='gallery'] {
+  --wave-opacity: 0.78;
+}
+
 .background[data-active-scene='cta'] {
-  --wave-opacity: 0.68;
+  --wave-opacity: 0.82;
 }
 
 @keyframes auroraGlide {
@@ -271,18 +271,18 @@
     --wave-speed: 42s;
     --wave-blur: 16px;
     background:
-      linear-gradient(145deg, rgba(49, 8, 58, 0.74), transparent 46%),
-      linear-gradient(225deg, rgba(6, 30, 54, 0.78), transparent 56%),
-      linear-gradient(180deg, #09020f 0%, #190724 52%, #071426 100%);
+      linear-gradient(145deg, rgba(98, 22, 122, 0.72), transparent 46%),
+      linear-gradient(225deg, rgba(9, 72, 112, 0.68), transparent 56%),
+      linear-gradient(180deg, #14061f 0%, #2b0f48 52%, #08294d 100%);
   }
 
   .background::before {
     inset: 0;
     opacity: 1;
     background:
-      linear-gradient(132deg, rgba(255, 113, 185, 0.2), rgba(185, 132, 255, 0.12) 24%, transparent 48%),
-      linear-gradient(228deg, rgba(80, 231, 237, 0.2), rgba(66, 137, 255, 0.11) 30%, transparent 58%),
-      linear-gradient(18deg, rgba(255, 200, 95, 0.07), transparent 38%);
+      linear-gradient(132deg, rgba(255, 107, 190, 0.26), rgba(205, 158, 255, 0.18) 24%, transparent 48%),
+      linear-gradient(228deg, rgba(82, 239, 245, 0.26), rgba(75, 150, 255, 0.18) 30%, transparent 58%),
+      linear-gradient(18deg, rgba(255, 211, 99, 0.1), transparent 38%);
     filter: none;
     mix-blend-mode: normal;
     transform: none;
@@ -291,8 +291,8 @@
 
   .background::after {
     background:
-      linear-gradient(180deg, rgba(6, 1, 10, 0.44) 0%, rgba(11, 3, 18, 0.3) 46%, rgba(6, 1, 10, 0.58) 100%),
-      linear-gradient(90deg, rgba(5, 1, 10, 0.5) 0%, transparent 14%, transparent 86%, rgba(5, 1, 10, 0.5) 100%);
+      linear-gradient(180deg, rgba(12, 3, 20, 0.36) 0%, rgba(20, 6, 30, 0.22) 46%, rgba(10, 3, 19, 0.46) 100%),
+      linear-gradient(90deg, rgba(8, 2, 18, 0.4) 0%, transparent 14%, transparent 86%, rgba(8, 2, 18, 0.4) 100%);
   }
 
   .background span {
@@ -303,9 +303,9 @@
     inset: 0;
     opacity: 0.74;
     background:
-      linear-gradient(116deg, rgba(63, 12, 78, 0.54), transparent 54%),
-      linear-gradient(242deg, rgba(6, 35, 61, 0.48), transparent 58%),
-      linear-gradient(180deg, rgba(7, 2, 12, 0.18), rgba(7, 2, 12, 0.66));
+      linear-gradient(116deg, rgba(98, 22, 122, 0.52), transparent 54%),
+      linear-gradient(242deg, rgba(9, 72, 112, 0.46), transparent 58%),
+      linear-gradient(180deg, rgba(20, 6, 32, 0.14), rgba(16, 5, 28, 0.58));
   }
 
   .background .auroraField,
@@ -333,8 +333,8 @@
     height: 34vh;
     opacity: 0.42;
     background:
-      linear-gradient(104deg, transparent 4%, rgba(255, 113, 185, 0.3) 18%, rgba(185, 132, 255, 0.2) 34%, rgba(80, 231, 237, 0.24) 50%, transparent 78%),
-      linear-gradient(180deg, rgba(255, 248, 255, 0.07), transparent 52%);
+      linear-gradient(104deg, transparent 4%, rgba(255, 107, 190, 0.36) 18%, rgba(205, 158, 255, 0.26) 34%, rgba(82, 239, 245, 0.3) 50%, transparent 78%),
+      linear-gradient(180deg, rgba(255, 248, 255, 0.09), transparent 52%);
     filter: none;
     mix-blend-mode: normal;
     transform: rotate(-8deg);

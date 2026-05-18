@@ -18,7 +18,7 @@
   height: 8rem;
   pointer-events: none;
   content: '';
-  background: linear-gradient(180deg, transparent, rgba(23, 7, 31, 0.88));
+  background: linear-gradient(180deg, transparent, rgba(33, 10, 49, 0.74));
 }
 
 .noise {
@@ -36,9 +36,9 @@
   z-index: 0;
   pointer-events: none;
   background:
-    linear-gradient(112deg, rgba(248, 106, 169, 0.1), transparent 34%),
-    linear-gradient(248deg, rgba(99, 217, 227, 0.09), transparent 38%),
-    linear-gradient(180deg, rgba(8, 2, 13, 0.08), rgba(12, 3, 18, 0.58) 72%, rgba(8, 2, 13, 0.78));
+    linear-gradient(112deg, rgba(255, 111, 182, 0.16), transparent 34%),
+    linear-gradient(248deg, rgba(103, 233, 243, 0.15), transparent 38%),
+    linear-gradient(180deg, rgba(20, 6, 31, 0.04), rgba(29, 9, 43, 0.42) 72%, rgba(20, 6, 31, 0.62));
 }
 
 .content {
@@ -113,7 +113,7 @@
 .primaryButton {
   color: #1a0820;
   background: linear-gradient(120deg, var(--yellow), var(--orange) 48%, var(--magenta));
-  box-shadow: 0 12px 26px rgba(246, 154, 87, 0.16);
+  box-shadow: 0 12px 26px rgba(246, 154, 87, 0.24);
 }
 
 .secondaryButton {
@@ -132,8 +132,8 @@
 .primaryButton:hover,
 .primaryButton:focus-visible {
   box-shadow:
-    0 18px 38px rgba(246, 154, 87, 0.24),
-    0 0 30px rgba(248, 106, 169, 0.26);
+    0 18px 38px rgba(246, 154, 87, 0.32),
+    0 0 30px rgba(255, 111, 182, 0.32);
 }
 
 .secondaryButton:hover,

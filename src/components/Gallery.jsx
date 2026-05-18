@@ -1,23 +1,44 @@
 import { useEffect, useMemo, useState } from 'react';
 import { galleryItems } from '../data/siteContent.js';
 import useAutoCarousel from '../hooks/useAutoCarousel.js';
+import { cn } from '../lib/utils.js';
 import Reveal from './Reveal.jsx';
 import section from './Section.module.css';
 import styles from './Gallery.module.css';
+import { FlipReveal, FlipRevealItem } from './ui/flip-reveal.jsx';
 
 const MOBILE_PREVIEW_COUNT = 6;
-const galleryFilters = ['Todos', 'Canecas', 'Camisetas', 'Copos', 'Almofadas', 'Papelaria', 'Brindes'];
+const galleryFilters = [
+  'Todos',
+  'Uniformes',
+  'Camisetas',
+  'Copos',
+  'Canecas',
+  'Taças',
+  'Squeezes',
+  'Papelaria',
+  'Almofadas',
+  'Empresas',
+  'Kits',
+  'Datas',
+];
 
-const tagGroups = {
-  Canecas: ['Canecas'],
-  Camisetas: ['Camisetas', 'Uniformes'],
-  Copos: ['Copos', 'Squeezes', 'Taças'],
-  Almofadas: ['Almofadas'],
-  Papelaria: ['Papelaria'],
-  Brindes: ['Empresas', 'Kits', 'Datas'],
+const filterTones = {
+  Todos: 'yellow',
+  Uniformes: 'cyan',
+  Camisetas: 'magenta',
+  Copos: 'orange',
+  Canecas: 'magenta',
+  Taças: 'yellow',
+  Squeezes: 'cyan',
+  Papelaria: 'green',
+  Almofadas: 'purple',
+  Empresas: 'orange',
+  Kits: 'yellow',
+  Datas: 'magenta',
 };
 
-const matchesFilter = (item, filter) => filter === 'Todos' || tagGroups[filter]?.includes(item.tag);
+const matchesFilter = (item, filter) => filter === 'Todos' || item.tag === filter;
 
 export default function Gallery() {
   const [activeFilter, setActiveFilter] = useState('Todos');
@@ -26,6 +47,11 @@ export default function Gallery() {
   const filteredItems = useMemo(
     () => galleryItems.filter((item) => matchesFilter(item, activeFilter)),
     [activeFilter],
+  );
+  const visibleFlipKeys = activeFilter === 'Todos' ? ['all'] : [activeFilter];
+  const previewItems = useMemo(
+    () => new Set(filteredItems.slice(0, MOBILE_PREVIEW_COUNT).map((item) => item.image)),
+    [filteredItems],
   );
   const { scrollNext, scrollPrevious, trackProps, trackRef } = useAutoCarousel({
     enabled: !isExpanded,
@@ -45,7 +71,8 @@ export default function Gallery() {
 
   useEffect(() => {
     setIsExpanded(false);
-  }, [activeFilter]);
+    trackRef.current?.scrollTo({ left: 0, behavior: 'auto' });
+  }, [activeFilter, trackRef]);
 
   const toggleExpanded = () => {
     trackRef.current?.scrollTo({ left: 0, behavior: 'auto' });
@@ -68,7 +95,11 @@ export default function Gallery() {
         <Reveal className={styles.filters} aria-label="Filtrar galeria por tipo de produto">
           {galleryFilters.map((filter) => (
             <button
-              className={`${styles.filterButton} ${activeFilter === filter ? styles.filterActive : ''}`}
+              className={cn(
+                styles.filterButton,
+                styles[filterTones[filter]],
+                activeFilter === filter && styles.filterActive,
+              )}
               type="button"
               aria-pressed={activeFilter === filter}
               key={filter}
@@ -103,19 +134,39 @@ export default function Gallery() {
           </div>
         )}
 
-        <div className={gridClasses} aria-label="Galeria de trabalhos feitos no celular" {...carouselProps}>
-          {filteredItems.map((item) => (
-            <Reveal as="article" className={`${styles.card} ${styles[item.tone]}`} key={item.image}>
-              <div className={styles.media}>
-                <img className={styles.image} src={item.image} alt={item.label} loading="lazy" />
-              </div>
-              <div className={styles.caption}>
-                <span className={styles.tag}>{item.tag}</span>
-                <h3 className={styles.label}>{item.label}</h3>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <FlipReveal
+          className={gridClasses}
+          aria-label="Galeria de trabalhos feitos"
+          keys={visibleFlipKeys}
+          showClass={styles.itemVisible}
+          hideClass={styles.itemHidden}
+          role="list"
+          {...carouselProps}
+        >
+          {galleryItems.map((item) => {
+            const isPreviewHidden = !isExpanded && !previewItems.has(item.image);
+
+            return (
+              <FlipRevealItem
+                className={cn(styles.card, styles[item.tone], isPreviewHidden && styles.previewHidden)}
+                flipKey={item.tag}
+                key={item.image}
+                role="listitem"
+              >
+                <article className={styles.cardSurface}>
+                  <div className={styles.media}>
+                    <img className={styles.image} src={item.image} alt={item.label} loading="lazy" />
+                    <span className={styles.floatingTag}>{item.tag}</span>
+                  </div>
+                  <div className={styles.caption}>
+                    <span className={styles.captionKicker}>Trabalho feito</span>
+                    <h3 className={styles.label}>{item.label}</h3>
+                  </div>
+                </article>
+              </FlipRevealItem>
+            );
+          })}
+        </FlipReveal>
       </div>
     </section>
   );

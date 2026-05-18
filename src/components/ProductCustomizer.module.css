@@ -18,9 +18,9 @@
   min-width: 0;
   overflow: hidden;
   background:
-    linear-gradient(150deg, rgba(255, 248, 255, 0.065), rgba(255, 215, 106, 0.018)),
-    rgba(45, 20, 60, 0.76);
-  border: 1px solid rgba(255, 248, 255, 0.14);
+    linear-gradient(150deg, rgba(255, 248, 255, 0.085), rgba(255, 215, 106, 0.032)),
+    rgba(55, 22, 72, 0.78);
+  border: 1px solid rgba(255, 248, 255, 0.18);
   border-radius: var(--radius-card);
   box-shadow: 0 14px 38px rgba(0, 0, 0, 0.22);
   backdrop-filter: blur(16px);
@@ -41,9 +41,9 @@
   padding: 0.95rem;
   margin-bottom: 0.9rem;
   background:
-    linear-gradient(140deg, rgba(117, 217, 140, 0.13), rgba(99, 217, 227, 0.08), rgba(248, 106, 169, 0.08)),
-    rgba(255, 248, 255, 0.045);
-  border: 1px solid rgba(117, 217, 140, 0.2);
+    linear-gradient(140deg, rgba(128, 230, 154, 0.18), rgba(103, 233, 243, 0.13), rgba(255, 111, 182, 0.12)),
+    rgba(255, 248, 255, 0.06);
+  border: 1px solid rgba(128, 230, 154, 0.28);
   border-radius: 8px;
 }
 
@@ -73,7 +73,7 @@
 .quantityControl {
   width: 100%;
   color: var(--white);
-  background: rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.085);
   border: 1px solid rgba(255, 255, 255, 0.13);
   border-radius: 8px;
   outline: none;
@@ -103,11 +103,11 @@
 .field input:focus,
 .field textarea:focus,
 .quantityControl:focus-within {
-  background: rgba(255, 255, 255, 0.095);
-  border-color: rgba(99, 217, 227, 0.44);
+  background: rgba(255, 255, 255, 0.11);
+  border-color: rgba(103, 233, 243, 0.5);
   box-shadow:
-    inset 0 0 0 1px rgba(99, 217, 227, 0.16),
-    0 0 18px rgba(99, 217, 227, 0.1);
+    inset 0 0 0 1px rgba(103, 233, 243, 0.18),
+    0 0 18px rgba(103, 233, 243, 0.14);
 }
 
 .quantityControl {
@@ -283,11 +283,11 @@
 }
 
 .magenta {
-  --option-color: #f86aa9;
+  --option-color: #ff6fb6;
 }
 
 .cyan {
-  --option-color: #63d9e3;
+  --option-color: #67e9f3;
 }
 
 .yellow {
@@ -299,11 +299,11 @@
 }
 
 .purple {
-  --option-color: #a77cec;
+  --option-color: #b78cff;
 }
 
 .green {
-  --option-color: #75d98c;
+  --option-color: #80e69a;
 }
 
 .otherField {
@@ -471,7 +471,7 @@
   border-radius: 999px;
   box-shadow:
     0 0 20px rgba(248, 106, 169, 0.2),
-    0 12px 26px rgba(246, 154, 87, 0.14);
+    0 12px 26px rgba(246, 154, 87, 0.18);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -480,8 +480,8 @@
 .whatsappButton:hover,
 .whatsappButton:focus-visible {
   box-shadow:
-    0 0 30px rgba(246, 154, 87, 0.26),
-    0 14px 32px rgba(248, 106, 169, 0.16);
+    0 0 30px rgba(246, 154, 87, 0.32),
+    0 14px 32px rgba(255, 111, 182, 0.22);
   transform: translateY(-2px);
 }
 

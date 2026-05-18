@@ -1,22 +1,29 @@
 .filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.55rem;
+  gap: 0.58rem;
   justify-content: center;
-  width: min(100%, 820px);
+  width: min(100%, 900px);
   margin: -0.85rem auto 1.7rem;
 }
 
 .filterButton {
-  min-height: 2.5rem;
-  padding: 0.62rem 1rem;
+  --filter-color: var(--cyan);
+  --filter-color-2: var(--magenta);
+  position: relative;
+  min-height: 2.45rem;
+  padding: 0.58rem 0.92rem;
+  overflow: hidden;
   color: rgba(255, 248, 255, 0.78);
-  font-size: 0.86rem;
+  font-size: 0.82rem;
   font-weight: 900;
+  letter-spacing: 0;
   line-height: 1;
   cursor: pointer;
-  background: rgba(255, 248, 255, 0.06);
-  border: 1px solid rgba(255, 248, 255, 0.12);
+  background:
+    linear-gradient(145deg, rgba(255, 248, 255, 0.075), rgba(255, 248, 255, 0.025)),
+    rgba(55, 22, 72, 0.6);
+  border: 1px solid rgba(255, 248, 255, 0.13);
   border-radius: 999px;
   transition:
     color 0.2s ease,
@@ -25,12 +32,29 @@
     transform 0.2s ease;
 }
 
+.filterButton::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  content: '';
+  background: linear-gradient(90deg, transparent, var(--filter-color), var(--filter-color-2), transparent);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
 .filterButton:hover,
 .filterButton:focus-visible {
   color: var(--white);
-  background: rgba(255, 248, 255, 0.1);
-  border-color: rgba(255, 248, 255, 0.22);
+  background:
+    linear-gradient(145deg, rgba(255, 248, 255, 0.11), rgba(255, 248, 255, 0.045)),
+    rgba(55, 22, 72, 0.76);
+  border-color: color-mix(in srgb, var(--filter-color), transparent 48%);
   transform: translateY(-2px);
+}
+
+.filterButton:hover::after,
+.filterButton:focus-visible::after {
+  opacity: 0.85;
 }
 
 .filterActive,
@@ -39,12 +63,19 @@
   color: #1a0820;
   background: linear-gradient(120deg, var(--yellow), var(--orange), var(--magenta));
   border-color: transparent;
+  box-shadow: 0 10px 22px rgba(255, 111, 182, 0.24);
+}
+
+.filterActive::after {
+  opacity: 0;
 }
 
 .grid {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.9rem;
+  gap: 1rem;
+  align-items: stretch;
   width: 100%;
   min-width: 0;
   margin: 0 auto;
@@ -58,34 +89,66 @@
   --tile-a: #ff4fa8;
   --tile-b: #a56cff;
   position: relative;
+  min-width: 0;
+}
+
+.itemVisible {
+  display: block;
+}
+
+.itemHidden {
+  display: none;
+}
+
+.cardSurface {
+  position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  height: 100%;
   overflow: hidden;
+  isolation: isolate;
   background:
-    linear-gradient(145deg, rgba(255, 248, 255, 0.06), rgba(255, 218, 85, 0.015)),
-    rgba(45, 20, 60, 0.72);
-  border: 1px solid color-mix(in srgb, var(--tile-a), transparent 74%);
+    linear-gradient(150deg, color-mix(in srgb, var(--tile-a), transparent 89%), rgba(255, 248, 255, 0.05)),
+    rgba(52, 21, 70, 0.84);
+  border: 1px solid color-mix(in srgb, var(--tile-a), transparent 68%);
   border-radius: var(--radius-card);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+  box-shadow:
+    0 16px 36px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
   transform: translateZ(0);
   transition:
     transform 0.24s ease,
     box-shadow 0.24s ease,
-    border-color 0.24s ease;
+    border-color 0.24s ease,
+    background 0.24s ease;
 }
 
-.card:hover {
-  border-color: color-mix(in srgb, var(--tile-a), transparent 38%);
-  box-shadow:
-    0 18px 42px rgba(0, 0, 0, 0.24),
-    0 0 18px color-mix(in srgb, var(--tile-a), transparent 90%);
-  transform: translateY(-3px);
+.cardSurface::before {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  content: '';
+  background:
+    linear-gradient(90deg, transparent 0 8%, var(--tile-a) 32%, var(--tile-b) 68%, transparent 92%) top / 100% 1px no-repeat,
+    linear-gradient(145deg, rgba(255, 248, 255, 0.08), transparent 34%);
+  opacity: 0.62;
+}
+
+.cardSurface::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: '';
+  background: linear-gradient(135deg, color-mix(in srgb, var(--tile-a), transparent 86%), transparent 46%);
+  opacity: 0.55;
 }
 
 .media {
   position: relative;
-  aspect-ratio: 16 / 11;
+  display: block;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
   background:
     linear-gradient(135deg, color-mix(in srgb, var(--tile-a), transparent 88%), rgba(255, 248, 255, 0.05)),
@@ -98,9 +161,9 @@
   pointer-events: none;
   content: '';
   background:
-    linear-gradient(180deg, transparent 62%, rgba(0, 0, 0, 0.22)),
+    linear-gradient(180deg, transparent 42%, rgba(11, 3, 18, 0.18) 70%, rgba(11, 3, 18, 0.72)),
     linear-gradient(135deg, color-mix(in srgb, var(--tile-a), transparent 88%), transparent 50%);
-  opacity: 0.65;
+  opacity: 0.74;
 }
 
 .image {
@@ -109,32 +172,63 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: saturate(1.04) contrast(1.02);
+  filter: saturate(1.12) contrast(1.03);
   transition:
-    transform 0.35s ease,
-    filter 0.35s ease;
+    transform 0.38s ease,
+    filter 0.38s ease;
 }
 
-.card:hover .image {
-  filter: saturate(1.12) contrast(1.05) brightness(1.03);
-  transform: scale(1.035);
+.floatingTag {
+  position: absolute;
+  right: 0.82rem;
+  bottom: 0.78rem;
+  z-index: 1;
+  max-width: calc(100% - 1.64rem);
+  padding: 0.34rem 0.68rem;
+  color: color-mix(in srgb, var(--tile-a), white 42%);
+  font-size: 0.68rem;
+  font-weight: 1000;
+  line-height: 1;
+  text-transform: uppercase;
+  background: rgba(18, 5, 26, 0.72);
+  border: 1px solid color-mix(in srgb, var(--tile-a), transparent 52%);
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
 }
 
 .caption {
   display: grid;
-  gap: 0.55rem;
+  gap: 0.5rem;
   min-width: 0;
-  padding: 0.9rem 0.95rem 1rem;
+  padding: 1rem 1rem 1.08rem;
+}
+
+.captionKicker {
+  color: color-mix(in srgb, var(--tile-b), white 28%);
+  font-size: 0.68rem;
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.label {
+  min-height: 2.7rem;
+  margin: 0;
+  color: var(--white);
+  font-size: 1rem;
+  font-weight: 1000;
+  line-height: 1.34;
+  text-wrap: balance;
 }
 
 .magenta {
-  --tile-a: #ff4fa8;
-  --tile-b: #a56cff;
+  --tile-a: #ff6fb6;
+  --tile-b: #b78cff;
 }
 
 .cyan {
-  --tile-a: #37e4ee;
-  --tile-b: #0066ff;
+  --tile-a: #67e9f3;
+  --tile-b: #6e9bff;
 }
 
 .yellow {
@@ -143,8 +237,8 @@
 }
 
 .purple {
-  --tile-a: #a56cff;
-  --tile-b: #ff4fa8;
+  --tile-a: #b78cff;
+  --tile-b: #ff6fb6;
 }
 
 .orange {
@@ -153,31 +247,27 @@
 }
 
 .green {
-  --tile-a: #58df75;
-  --tile-b: #37e4ee;
+  --tile-a: #80e69a;
+  --tile-b: #67e9f3;
 }
 
-.tag {
-  justify-self: start;
-  padding: 0.3rem 0.62rem;
-  color: color-mix(in srgb, var(--tile-a), white 34%);
-  font-size: 0.7rem;
-  font-weight: 900;
-  letter-spacing: 0;
-  line-height: 1;
-  text-transform: uppercase;
-  background: color-mix(in srgb, var(--tile-a), transparent 88%);
-  border: 1px solid color-mix(in srgb, var(--tile-a), transparent 64%);
-  border-radius: 999px;
-}
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .cardSurface {
+    background:
+      linear-gradient(150deg, color-mix(in srgb, var(--tile-a), transparent 88%), rgba(255, 248, 255, 0.05)),
+      rgba(60, 24, 80, 0.9);
+    border-color: color-mix(in srgb, var(--tile-a), transparent 38%);
+    box-shadow:
+      0 22px 46px rgba(0, 0, 0, 0.26),
+      0 0 22px color-mix(in srgb, var(--tile-a), transparent 88%),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    transform: translateY(-4px);
+  }
 
-.label {
-  min-height: 2.55rem;
-  margin: 0;
-  color: var(--white);
-  font-size: 0.96rem;
-  font-weight: 900;
-  line-height: 1.35;
+  .card:hover .image {
+    filter: saturate(1.22) contrast(1.06) brightness(1.04);
+    transform: scale(1.045);
+  }
 }
 
 @media (max-width: 1120px) {
@@ -186,7 +276,7 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 820px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -194,16 +284,26 @@
 
 @media (max-width: 560px) {
   .filters {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     width: min(100%, 28rem);
+    padding: 0.05rem 0 0.35rem;
     margin-top: -0.75rem;
     margin-bottom: 1rem;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  .filters::-webkit-scrollbar {
+    display: none;
   }
 
   .filterButton {
-    width: 100%;
-    min-height: 2.75rem;
+    flex: 0 0 auto;
+    min-height: 2.65rem;
+    scroll-snap-align: start;
   }
 
   .mobileControls {
@@ -290,29 +390,30 @@
   .carouselMode {
     display: flex;
     grid-template-columns: none;
-    gap: 0.82rem;
+    gap: 0.85rem;
     width: min(100%, 28rem);
-    padding: 0 0.1rem 0.55rem;
-    overflow-x: hidden;
-    overscroll-behavior-x: none;
+    padding: 0 0.1rem 0.6rem;
+    margin-right: auto;
+    margin-left: auto;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
     scroll-padding-inline: 0.1rem;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    -webkit-overflow-scrolling: auto;
+    -webkit-overflow-scrolling: touch;
     touch-action: pan-y pinch-zoom;
-    user-select: none;
   }
 
   .carouselMode::-webkit-scrollbar {
     display: none;
   }
 
-  .mobileCollapsed .card:nth-of-type(n + 7) {
+  .mobileCollapsed .previewHidden {
     display: none;
   }
 
   .carouselMode .card {
-    flex: 0 0 clamp(17.25rem, 82vw, 21rem);
+    flex: 0 0 clamp(17.4rem, 82vw, 21.5rem);
     scroll-snap-align: start;
     touch-action: pan-y pinch-zoom;
   }
@@ -340,16 +441,35 @@
     scroll-snap-align: none;
   }
 
-  .media {
-    aspect-ratio: 4 / 3;
-  }
-
-  .image {
-    object-fit: contain;
-    padding: 0.28rem;
+  .caption {
+    padding: 0.95rem 0.95rem 1rem;
   }
 
   .label {
     min-height: 0;
+  }
+}
+
+@media (min-width: 430px) and (max-width: 560px) {
+  .expandedMode {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .expandedMode .caption {
+    padding: 0.8rem;
+  }
+
+  .expandedMode .label {
+    font-size: 0.88rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cardSurface,
+  .image,
+  .filterButton,
+  .expandButton,
+  .arrowButton {
+    transition: none;
   }
 }
