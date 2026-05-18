@@ -293,13 +293,14 @@
     gap: 0.82rem;
     width: min(100%, 28rem);
     padding: 0 0.1rem 0.55rem;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
     scroll-padding-inline: 0.1rem;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    touch-action: pan-x;
+    -webkit-overflow-scrolling: auto;
+    touch-action: pan-y pinch-zoom;
+    user-select: none;
   }
 
   .carouselMode::-webkit-scrollbar {
@@ -313,6 +314,11 @@
   .carouselMode .card {
     flex: 0 0 clamp(17.25rem, 82vw, 21rem);
     scroll-snap-align: start;
+    touch-action: pan-y pinch-zoom;
+  }
+
+  .carouselMode .card * {
+    touch-action: pan-y pinch-zoom;
   }
 
   .expandedMode {
